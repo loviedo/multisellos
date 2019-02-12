@@ -15,9 +15,6 @@ Public Partial Class form_add_proveedor
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
 		
-		'
-		' TODO : Add constructor code after InitializeComponents
-		'
 		con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
 	End Sub
 	
