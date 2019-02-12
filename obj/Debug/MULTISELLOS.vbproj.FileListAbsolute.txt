@@ -1,0 +1,15 @@
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\bin\Debug\MULTISELLOS.exe
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\bin\Debug\MULTISELLOS.pdb
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.vbprojResolveAssemblyReference.cache
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.exe
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.pdb
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.MainForm.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.vbproj.GenerateResource.Cache
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_conf.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_cliente.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_add_cliente.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.Form_facturas.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.Form_add_producto.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.Form_productos.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_add_proveedor.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_proveedor.resources
