@@ -223,7 +223,7 @@ Partial Class form_proveedor
 		'button3
 		'
 		Me.button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button3.Location = New System.Drawing.Point(64, 6)
+		Me.button3.Location = New System.Drawing.Point(543, 6)
 		Me.button3.Name = "button3"
 		Me.button3.Size = New System.Drawing.Size(204, 43)
 		Me.button3.TabIndex = 1
@@ -234,7 +234,7 @@ Partial Class form_proveedor
 		'button2
 		'
 		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button2.Location = New System.Drawing.Point(483, 6)
+		Me.button2.Location = New System.Drawing.Point(28, 6)
 		Me.button2.Name = "button2"
 		Me.button2.Size = New System.Drawing.Size(208, 43)
 		Me.button2.TabIndex = 0
