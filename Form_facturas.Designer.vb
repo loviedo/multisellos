@@ -262,6 +262,7 @@ Partial Class Form_facturas
 		Me.button2.TabIndex = 2
 		Me.button2.Text = "Cerrar"
 		Me.button2.UseVisualStyleBackColor = false
+		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
 		'Form_facturas
 		'

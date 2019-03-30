@@ -31,7 +31,6 @@ Public Partial Class Form_facturas
 		
 
 		
-		
 
 	End Sub
 	
@@ -44,5 +43,9 @@ Public Partial Class Form_facturas
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
     	cli.Dispose()
+	End Sub
+	
+	Sub Button2Click(sender As Object, e As EventArgs)
+		Me.Close()		
 	End Sub
 End Class
