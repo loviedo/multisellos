@@ -74,4 +74,8 @@ Public Partial Class form_add_cliente
 		End If
 	End Sub
 	
+	
+	Sub Form_add_clienteLoad(sender As Object, e As EventArgs)
+		Me.CenterToScreen()				
+	End Sub
 End Class

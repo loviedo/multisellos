@@ -6,7 +6,15 @@
 ' 
 ' To change this template use Tools | Options | Coding | Edit Standard Headers.
 '
+
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Drawing.Printing
+Imports Excel = Microsoft.Office.Interop.Excel
+
 Public Partial Class form_busca_fact
+	
+	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
@@ -14,6 +22,7 @@ Public Partial Class form_busca_fact
 		'
 		' TODO : Add constructor code after InitializeComponents
 		'
+
 	End Sub
 	
 	Sub Button3Click(sender As Object, e As EventArgs)
@@ -93,8 +102,7 @@ Public Partial Class form_busca_fact
 		
 		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString
 		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString
-		TextBox3.Text = DataGridView1.Item(3, i).Value.ToString
-		TextBox6.Text = DataGridView1.Item(0, i).Value.ToString				
+		TextBox3.Text = DataGridView1.Item(3, i).Value.ToString			
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)

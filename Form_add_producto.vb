@@ -69,4 +69,8 @@ Public Partial Class Form_add_producto
 		End If
 		
 	End Sub
+	
+	Sub Form_add_productoLoad(sender As Object, e As EventArgs)
+		Me.CenterToScreen()		
+	End Sub
 End Class

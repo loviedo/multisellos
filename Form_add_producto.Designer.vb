@@ -220,6 +220,7 @@ Partial Class Form_add_producto
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "Form_add_producto"
 		Me.Text = "Form_add_producto"
+		AddHandler Load, AddressOf Me.Form_add_productoLoad
 		Me.panel2.ResumeLayout(false)
 		Me.panel2.PerformLayout
 		Me.panel1.ResumeLayout(false)

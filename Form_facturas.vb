@@ -79,4 +79,19 @@ Public Partial Class Form_facturas
 	Sub Form_facturasLoad(sender As Object, e As EventArgs)
 		Me.CenterToScreen()		
 	End Sub
+	
+	Sub DataGridView1CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+		
+	End Sub
+	
+	Sub Button1Click(sender As Object, e As EventArgs)
+		'Llamamos al formulario de BUSCAR FACTURAS
+		Dim prod As New form_busca_prod()
+		If prod.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+        	' traemos el contenido
+    	Else
+        	'tx_nom_cliente.Text = "Cancelado"
+    	End If
+    	prod.Dispose()	
+	End Sub
 End Class

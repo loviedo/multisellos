@@ -72,6 +72,10 @@
       <DependentUpon>form_busca_fact.vb</DependentUpon>
     </Compile>
     <Compile Include="form_busca_fact.vb" />
+    <Compile Include="form_busca_prod.Designer.vb">
+      <DependentUpon>form_busca_prod.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_busca_prod.vb" />
     <Compile Include="form_cliente.Designer.vb">
       <DependentUpon>form_cliente.vb</DependentUpon>
     </Compile>
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_busca_fact.resx">
       <DependentUpon>form_busca_fact.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_busca_prod.resx">
+      <DependentUpon>form_busca_prod.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_cliente.resx">
       <DependentUpon>form_cliente.vb</DependentUpon>

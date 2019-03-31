@@ -34,8 +34,10 @@ Partial Class form_add_cliente
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.dt_fecnac_c = New System.Windows.Forms.DateTimePicker()
 		Me.label7 = New System.Windows.Forms.Label()
 		Me.tx_dir_c = New System.Windows.Forms.TextBox()
+		Me.label2 = New System.Windows.Forms.Label()
 		Me.label6 = New System.Windows.Forms.Label()
 		Me.tx_email_c = New System.Windows.Forms.TextBox()
 		Me.label1 = New System.Windows.Forms.Label()
@@ -48,8 +50,6 @@ Partial Class form_add_cliente
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.button2 = New System.Windows.Forms.Button()
 		Me.button1 = New System.Windows.Forms.Button()
-		Me.dt_fecnac_c = New System.Windows.Forms.DateTimePicker()
-		Me.label2 = New System.Windows.Forms.Label()
 		Me.panel2.SuspendLayout
 		Me.panel1.SuspendLayout
 		Me.SuspendLayout
@@ -75,6 +75,16 @@ Partial Class form_add_cliente
 		Me.panel2.Size = New System.Drawing.Size(588, 349)
 		Me.panel2.TabIndex = 11
 		'
+		'dt_fecnac_c
+		'
+		Me.dt_fecnac_c.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.dt_fecnac_c.Location = New System.Drawing.Point(223, 202)
+		Me.dt_fecnac_c.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
+		Me.dt_fecnac_c.Name = "dt_fecnac_c"
+		Me.dt_fecnac_c.Size = New System.Drawing.Size(360, 20)
+		Me.dt_fecnac_c.TabIndex = 5
+		Me.dt_fecnac_c.Value = New Date(2018, 8, 7, 22, 43, 4, 0)
+		'
 		'label7
 		'
 		Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
@@ -94,6 +104,16 @@ Partial Class form_add_cliente
 		Me.tx_dir_c.Size = New System.Drawing.Size(360, 49)
 		Me.tx_dir_c.TabIndex = 6
 		Me.tx_dir_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'label2
+		'
+		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label2.Location = New System.Drawing.Point(3, 197)
+		Me.label2.Name = "label2"
+		Me.label2.Size = New System.Drawing.Size(208, 29)
+		Me.label2.TabIndex = 20
+		Me.label2.Text = "FEC NACIMIENTO:"
+		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
 		'label6
 		'
@@ -215,26 +235,6 @@ Partial Class form_add_cliente
 		Me.button1.UseVisualStyleBackColor = true
 		AddHandler Me.button1.Click, AddressOf Me.Button1Click
 		'
-		'dt_fecnac_c
-		'
-		Me.dt_fecnac_c.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.dt_fecnac_c.Location = New System.Drawing.Point(223, 202)
-		Me.dt_fecnac_c.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
-		Me.dt_fecnac_c.Name = "dt_fecnac_c"
-		Me.dt_fecnac_c.Size = New System.Drawing.Size(360, 20)
-		Me.dt_fecnac_c.TabIndex = 5
-		Me.dt_fecnac_c.Value = New Date(2018, 8, 7, 22, 43, 4, 0)
-		'
-		'label2
-		'
-		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label2.Location = New System.Drawing.Point(3, 197)
-		Me.label2.Name = "label2"
-		Me.label2.Size = New System.Drawing.Size(208, 29)
-		Me.label2.TabIndex = 20
-		Me.label2.Text = "FEC NACIMIENTO:"
-		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
 		'form_add_cliente
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -244,6 +244,7 @@ Partial Class form_add_cliente
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "form_add_cliente"
 		Me.Text = "form_add_cliente"
+		AddHandler Load, AddressOf Me.Form_add_clienteLoad
 		Me.panel2.ResumeLayout(false)
 		Me.panel2.PerformLayout
 		Me.panel1.ResumeLayout(false)

@@ -6,6 +6,12 @@
 ' 
 ' To change this template use Tools | Options | Coding | Edit Standard Headers.
 '
+
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Drawing.Printing
+Imports Excel = Microsoft.Office.Interop.Excel
+
 Public Partial Class form_recibos
 	
 	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
@@ -43,5 +49,16 @@ Public Partial Class form_recibos
 	Sub Button4Click(sender As Object, e As EventArgs)
 		'guardamos e imprimimos
 		
+	End Sub
+	
+	Sub Button1Click(sender As Object, e As EventArgs)
+		'Llamamos al formulario de BUSCAR FACTURAS
+		Dim fact As New form_busca_fact()
+		If fact.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+        	' traemos el contenido
+    	Else
+        	'tx_nom_cliente.Text = "Cancelado"
+    	End If
+    	fact.Dispose()	
 	End Sub
 End Class

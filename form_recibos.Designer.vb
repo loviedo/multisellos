@@ -128,6 +128,7 @@ Partial Class form_recibos
 		Me.button1.TabIndex = 17
 		Me.button1.Text = "Buscar Factura"
 		Me.button1.UseVisualStyleBackColor = true
+		AddHandler Me.button1.Click, AddressOf Me.Button1Click
 		'
 		'label1
 		'
