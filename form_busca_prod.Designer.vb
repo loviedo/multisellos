@@ -35,6 +35,8 @@ Partial Class form_busca_prod
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
 		Me.panel3 = New System.Windows.Forms.Panel()
+		Me.label2 = New System.Windows.Forms.Label()
+		Me.textBox5 = New System.Windows.Forms.TextBox()
 		Me.label4 = New System.Windows.Forms.Label()
 		Me.label3 = New System.Windows.Forms.Label()
 		Me.label5 = New System.Windows.Forms.Label()
@@ -67,6 +69,8 @@ Partial Class form_busca_prod
 		'panel3
 		'
 		Me.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel3.Controls.Add(Me.label2)
+		Me.panel3.Controls.Add(Me.textBox5)
 		Me.panel3.Controls.Add(Me.label4)
 		Me.panel3.Controls.Add(Me.label3)
 		Me.panel3.Controls.Add(Me.label5)
@@ -78,14 +82,32 @@ Partial Class form_busca_prod
 		Me.panel3.Size = New System.Drawing.Size(736, 148)
 		Me.panel3.TabIndex = 13
 		'
+		'label2
+		'
+		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label2.Location = New System.Drawing.Point(4, 88)
+		Me.label2.Name = "label2"
+		Me.label2.Size = New System.Drawing.Size(133, 29)
+		Me.label2.TabIndex = 20
+		Me.label2.Text = "CANTIDAD:"
+		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'textBox5
+		'
+		Me.textBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox5.Location = New System.Drawing.Point(143, 92)
+		Me.textBox5.Name = "textBox5"
+		Me.textBox5.Size = New System.Drawing.Size(81, 24)
+		Me.textBox5.TabIndex = 19
+		'
 		'label4
 		'
 		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(360, 15)
+		Me.label4.Location = New System.Drawing.Point(346, 16)
 		Me.label4.Name = "label4"
-		Me.label4.Size = New System.Drawing.Size(60, 29)
+		Me.label4.Size = New System.Drawing.Size(116, 29)
 		Me.label4.TabIndex = 18
-		Me.label4.Text = "TEL:"
+		Me.label4.Text = "PRECIO:"
 		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		AddHandler Me.label4.Click, AddressOf Me.Label4Click
 		'
@@ -113,7 +135,7 @@ Partial Class form_busca_prod
 		'textBox3
 		'
 		Me.textBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox3.Location = New System.Drawing.Point(423, 16)
+		Me.textBox3.Location = New System.Drawing.Point(468, 17)
 		Me.textBox3.Name = "textBox3"
 		Me.textBox3.Size = New System.Drawing.Size(178, 24)
 		Me.textBox3.TabIndex = 15
@@ -218,6 +240,8 @@ Partial Class form_busca_prod
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Public textBox5 As System.Windows.Forms.TextBox
+	Private label2 As System.Windows.Forms.Label
 	Private panel3 As System.Windows.Forms.Panel
 	Private button2 As System.Windows.Forms.Button
 	Private button3 As System.Windows.Forms.Button
