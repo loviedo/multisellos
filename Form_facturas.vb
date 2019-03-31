@@ -17,6 +17,9 @@ Public Partial Class Form_facturas
 	
 	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
 	
+	Dim tipo_factura = "CONTADO"
+
+	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
@@ -24,11 +27,17 @@ Public Partial Class Form_facturas
 		'
 		' TODO : Add constructor code after InitializeComponents
 		'
+
 	End Sub
 	
 	Sub Button4Click(sender As Object, e As EventArgs)
 		'aqui guardamos los datos y luego imprimimos.
-		
+		MessageBox.Show(tipo_factura)
+		If tipo_factura = "CONTADO" Or tipo_factura = "CREDITO" Then
+			'guardamos e imprimimos
+			
+			
+		End If
 
 		
 
@@ -47,5 +56,27 @@ Public Partial Class Form_facturas
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
 		Me.Close()		
+	End Sub
+	
+	Sub CheckBox1CheckedChanged(sender As Object, e As EventArgs)
+		If ch_contado.Checked = True Then
+			ch_credito.Checked = False
+			tipo_factura = "CONTADO"
+		Else
+			tipo_factura = ""
+		End If
+	End Sub
+	
+	Sub Ch_creditoCheckedChanged(sender As Object, e As EventArgs)
+		If ch_credito.Checked = True Then
+			ch_contado.Checked = False
+			tipo_factura = "CREDITO"
+		Else
+			tipo_factura = ""
+		End If
+	End Sub
+	
+	Sub Form_facturasLoad(sender As Object, e As EventArgs)
+		Me.CenterToScreen()		
 	End Sub
 End Class

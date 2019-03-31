@@ -26,6 +26,8 @@ Public Partial Class form_cliente
 	End Sub
 	
 	Sub Form_clienteLoad(sender As Object, e As EventArgs)
+		Me.CenterToScreen()
+		
 		'cargamos los clientes que hubieran
 		Dim con As New SqlConnection(con_str)
 		Dim cmd As New SqlCommand

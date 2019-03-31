@@ -68,6 +68,10 @@
       <DependentUpon>form_add_proveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="form_add_proveedor.vb" />
+    <Compile Include="form_busca_fact.Designer.vb">
+      <DependentUpon>form_busca_fact.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_busca_fact.vb" />
     <Compile Include="form_cliente.Designer.vb">
       <DependentUpon>form_cliente.vb</DependentUpon>
     </Compile>
@@ -88,6 +92,10 @@
       <DependentUpon>form_proveedor.vb</DependentUpon>
     </Compile>
     <Compile Include="form_proveedor.vb" />
+    <Compile Include="form_recibos.Designer.vb">
+      <DependentUpon>form_recibos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_recibos.vb" />
     <Compile Include="MainForm.Designer.vb">
       <DependentUpon>MainForm.vb</DependentUpon>
     </Compile>
@@ -110,6 +118,9 @@
     <EmbeddedResource Include="form_add_proveedor.resx">
       <DependentUpon>form_add_proveedor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form_busca_fact.resx">
+      <DependentUpon>form_busca_fact.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_cliente.resx">
       <DependentUpon>form_cliente.vb</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_proveedor.resx">
       <DependentUpon>form_proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_recibos.resx">
+      <DependentUpon>form_recibos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>

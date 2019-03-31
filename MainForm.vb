@@ -89,5 +89,12 @@ Public Partial Class MainForm
 	
 	Sub RecibosToolStripMenuItemClick(sender As Object, e As EventArgs)
 		'llamamos el form del recibo
+		Dim reci As New form_recibos()
+		If reci.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+        	'traemos el contenido
+    	Else
+        	'tx_nom_cliente.Text = "Cancelado"
+    	End If
+    	reci.Dispose()
 	End Sub
 End Class

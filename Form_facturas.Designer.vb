@@ -34,6 +34,10 @@ Partial Class Form_facturas
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.label1 = New System.Windows.Forms.Label()
+		Me.textBox2 = New System.Windows.Forms.TextBox()
+		Me.ch_credito = New System.Windows.Forms.CheckBox()
+		Me.ch_contado = New System.Windows.Forms.CheckBox()
 		Me.panel4 = New System.Windows.Forms.Panel()
 		Me.label8 = New System.Windows.Forms.Label()
 		Me.label7 = New System.Windows.Forms.Label()
@@ -61,6 +65,10 @@ Partial Class Form_facturas
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.label1)
+		Me.panel2.Controls.Add(Me.textBox2)
+		Me.panel2.Controls.Add(Me.ch_credito)
+		Me.panel2.Controls.Add(Me.ch_contado)
 		Me.panel2.Controls.Add(Me.panel4)
 		Me.panel2.Controls.Add(Me.label4)
 		Me.panel2.Controls.Add(Me.label3)
@@ -73,8 +81,48 @@ Partial Class Form_facturas
 		Me.panel2.Controls.Add(Me.tx_nom_cliente)
 		Me.panel2.Location = New System.Drawing.Point(12, 12)
 		Me.panel2.Name = "panel2"
-		Me.panel2.Size = New System.Drawing.Size(987, 481)
+		Me.panel2.Size = New System.Drawing.Size(987, 607)
 		Me.panel2.TabIndex = 7
+		'
+		'label1
+		'
+		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label1.Location = New System.Drawing.Point(3, 129)
+		Me.label1.Name = "label1"
+		Me.label1.Size = New System.Drawing.Size(195, 29)
+		Me.label1.TabIndex = 13
+		Me.label1.Text = "Remisión Nro:"
+		Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'textBox2
+		'
+		Me.textBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox2.Location = New System.Drawing.Point(204, 129)
+		Me.textBox2.Multiline = true
+		Me.textBox2.Name = "textBox2"
+		Me.textBox2.Size = New System.Drawing.Size(273, 29)
+		Me.textBox2.TabIndex = 12
+		Me.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'ch_credito
+		'
+		Me.ch_credito.Location = New System.Drawing.Point(788, 135)
+		Me.ch_credito.Name = "ch_credito"
+		Me.ch_credito.Size = New System.Drawing.Size(125, 24)
+		Me.ch_credito.TabIndex = 11
+		Me.ch_credito.Text = "CREDITO"
+		Me.ch_credito.UseVisualStyleBackColor = true
+		AddHandler Me.ch_credito.CheckedChanged, AddressOf Me.Ch_creditoCheckedChanged
+		'
+		'ch_contado
+		'
+		Me.ch_contado.Location = New System.Drawing.Point(657, 135)
+		Me.ch_contado.Name = "ch_contado"
+		Me.ch_contado.Size = New System.Drawing.Size(125, 24)
+		Me.ch_contado.TabIndex = 10
+		Me.ch_contado.Text = "CONTADO"
+		Me.ch_contado.UseVisualStyleBackColor = true
+		AddHandler Me.ch_contado.CheckedChanged, AddressOf Me.CheckBox1CheckedChanged
 		'
 		'panel4
 		'
@@ -142,7 +190,7 @@ Partial Class Form_facturas
 		'label4
 		'
 		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(65, 83)
+		Me.label4.Location = New System.Drawing.Point(65, 85)
 		Me.label4.Name = "label4"
 		Me.label4.Size = New System.Drawing.Size(73, 29)
 		Me.label4.TabIndex = 8
@@ -152,7 +200,7 @@ Partial Class Form_facturas
 		'label3
 		'
 		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(58, 48)
+		Me.label3.Location = New System.Drawing.Point(58, 50)
 		Me.label3.Name = "label3"
 		Me.label3.Size = New System.Drawing.Size(80, 29)
 		Me.label3.TabIndex = 7
@@ -162,7 +210,7 @@ Partial Class Form_facturas
 		'label2
 		'
 		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label2.Location = New System.Drawing.Point(17, 13)
+		Me.label2.Location = New System.Drawing.Point(17, 15)
 		Me.label2.Name = "label2"
 		Me.label2.Size = New System.Drawing.Size(121, 29)
 		Me.label2.TabIndex = 6
@@ -172,7 +220,7 @@ Partial Class Form_facturas
 		'tx_tel_cliente
 		'
 		Me.tx_tel_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_tel_cliente.Location = New System.Drawing.Point(156, 83)
+		Me.tx_tel_cliente.Location = New System.Drawing.Point(156, 85)
 		Me.tx_tel_cliente.Multiline = true
 		Me.tx_tel_cliente.Name = "tx_tel_cliente"
 		Me.tx_tel_cliente.Size = New System.Drawing.Size(321, 29)
@@ -182,7 +230,7 @@ Partial Class Form_facturas
 		'tx_ruc_cliente
 		'
 		Me.tx_ruc_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_ruc_cliente.Location = New System.Drawing.Point(156, 48)
+		Me.tx_ruc_cliente.Location = New System.Drawing.Point(156, 50)
 		Me.tx_ruc_cliente.Multiline = true
 		Me.tx_ruc_cliente.Name = "tx_ruc_cliente"
 		Me.tx_ruc_cliente.Size = New System.Drawing.Size(321, 29)
@@ -193,7 +241,7 @@ Partial Class Form_facturas
 		'
 		Me.button4.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button4.Location = New System.Drawing.Point(777, 438)
+		Me.button4.Location = New System.Drawing.Point(788, 566)
 		Me.button4.Name = "button4"
 		Me.button4.Size = New System.Drawing.Size(194, 38)
 		Me.button4.TabIndex = 3
@@ -208,9 +256,9 @@ Partial Class Form_facturas
 		Me.dataGridView1.AllowUserToOrderColumns = true
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.dataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.checito})
-		Me.dataGridView1.Location = New System.Drawing.Point(3, 120)
+		Me.dataGridView1.Location = New System.Drawing.Point(3, 191)
 		Me.dataGridView1.Name = "dataGridView1"
-		Me.dataGridView1.Size = New System.Drawing.Size(979, 312)
+		Me.dataGridView1.Size = New System.Drawing.Size(979, 369)
 		Me.dataGridView1.TabIndex = 3
 		'
 		'checito
@@ -235,7 +283,7 @@ Partial Class Form_facturas
 		'tx_nom_cliente
 		'
 		Me.tx_nom_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_nom_cliente.Location = New System.Drawing.Point(156, 13)
+		Me.tx_nom_cliente.Location = New System.Drawing.Point(156, 15)
 		Me.tx_nom_cliente.Multiline = true
 		Me.tx_nom_cliente.Name = "tx_nom_cliente"
 		Me.tx_nom_cliente.Size = New System.Drawing.Size(321, 29)
@@ -247,7 +295,7 @@ Partial Class Form_facturas
 		Me.panel1.BackColor = System.Drawing.SystemColors.ControlDark
 		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel1.Controls.Add(Me.button2)
-		Me.panel1.Location = New System.Drawing.Point(12, 499)
+		Me.panel1.Location = New System.Drawing.Point(12, 625)
 		Me.panel1.Name = "panel1"
 		Me.panel1.Size = New System.Drawing.Size(987, 53)
 		Me.panel1.TabIndex = 6
@@ -256,11 +304,11 @@ Partial Class Form_facturas
 		'
 		Me.button2.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button2.Location = New System.Drawing.Point(13, 3)
+		Me.button2.Location = New System.Drawing.Point(810, 4)
 		Me.button2.Name = "button2"
-		Me.button2.Size = New System.Drawing.Size(125, 44)
+		Me.button2.Size = New System.Drawing.Size(161, 44)
 		Me.button2.TabIndex = 2
-		Me.button2.Text = "Cerrar"
+		Me.button2.Text = "Cancelar"
 		Me.button2.UseVisualStyleBackColor = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
@@ -268,11 +316,12 @@ Partial Class Form_facturas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1008, 570)
+		Me.ClientSize = New System.Drawing.Size(1008, 690)
 		Me.Controls.Add(Me.panel2)
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "Form_facturas"
 		Me.Text = "Form_facturas"
+		AddHandler Load, AddressOf Me.Form_facturasLoad
 		Me.panel2.ResumeLayout(false)
 		Me.panel2.PerformLayout
 		Me.panel4.ResumeLayout(false)
@@ -281,6 +330,10 @@ Partial Class Form_facturas
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private textBox2 As System.Windows.Forms.TextBox
+	Private label1 As System.Windows.Forms.Label
+	Private ch_credito As System.Windows.Forms.CheckBox
+	Private ch_contado As System.Windows.Forms.CheckBox
 	Private button2 As System.Windows.Forms.Button
 	Private panel1 As System.Windows.Forms.Panel
 	Private tx_nom_cliente As System.Windows.Forms.TextBox
