@@ -33,16 +33,198 @@ Partial Class form_busca_prod
 	''' not be able to load this method if it was changed manually.
 	''' </summary>
 	Private Sub InitializeComponent()
+		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.label4 = New System.Windows.Forms.Label()
+		Me.label3 = New System.Windows.Forms.Label()
+		Me.label5 = New System.Windows.Forms.Label()
+		Me.label2 = New System.Windows.Forms.Label()
+		Me.label1 = New System.Windows.Forms.Label()
+		Me.textBox4 = New System.Windows.Forms.TextBox()
+		Me.textBox3 = New System.Windows.Forms.TextBox()
+		Me.textBox2 = New System.Windows.Forms.TextBox()
+		Me.dataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.textBox1 = New System.Windows.Forms.TextBox()
+		Me.panel1 = New System.Windows.Forms.Panel()
+		Me.button3 = New System.Windows.Forms.Button()
+		Me.button2 = New System.Windows.Forms.Button()
+		Me.panel2.SuspendLayout
+		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
+		Me.panel1.SuspendLayout
 		Me.SuspendLayout
+		'
+		'panel2
+		'
+		Me.panel2.Controls.Add(Me.label4)
+		Me.panel2.Controls.Add(Me.label3)
+		Me.panel2.Controls.Add(Me.label5)
+		Me.panel2.Controls.Add(Me.label2)
+		Me.panel2.Controls.Add(Me.label1)
+		Me.panel2.Controls.Add(Me.textBox4)
+		Me.panel2.Controls.Add(Me.textBox3)
+		Me.panel2.Controls.Add(Me.textBox2)
+		Me.panel2.Controls.Add(Me.dataGridView1)
+		Me.panel2.Controls.Add(Me.textBox1)
+		Me.panel2.Location = New System.Drawing.Point(12, 12)
+		Me.panel2.Name = "panel2"
+		Me.panel2.Size = New System.Drawing.Size(762, 494)
+		Me.panel2.TabIndex = 9
+		'
+		'label4
+		'
+		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label4.Location = New System.Drawing.Point(507, 417)
+		Me.label4.Name = "label4"
+		Me.label4.Size = New System.Drawing.Size(60, 29)
+		Me.label4.TabIndex = 12
+		Me.label4.Text = "TEL:"
+		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label3
+		'
+		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label3.Location = New System.Drawing.Point(105, 454)
+		Me.label3.Name = "label3"
+		Me.label3.Size = New System.Drawing.Size(190, 29)
+		Me.label3.TabIndex = 11
+		Me.label3.Text = "DESCRIPCION:"
+		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+		'
+		'label5
+		'
+		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label5.Location = New System.Drawing.Point(184, 417)
+		Me.label5.Name = "label5"
+		Me.label5.Size = New System.Drawing.Size(111, 29)
+		Me.label5.TabIndex = 10
+		Me.label5.Text = "CLIENTE:"
+		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label2
+		'
+		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label2.Location = New System.Drawing.Point(12, 418)
+		Me.label2.Name = "label2"
+		Me.label2.Size = New System.Drawing.Size(130, 29)
+		Me.label2.TabIndex = 9
+		Me.label2.Text = "Seleccionado: "
+		'
+		'label1
+		'
+		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label1.Location = New System.Drawing.Point(16, 15)
+		Me.label1.Name = "label1"
+		Me.label1.Size = New System.Drawing.Size(162, 29)
+		Me.label1.TabIndex = 8
+		Me.label1.Text = "Buscar por Nro"
+		'
+		'textBox4
+		'
+		Me.textBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox4.Location = New System.Drawing.Point(184, 12)
+		Me.textBox4.Name = "textBox4"
+		Me.textBox4.Size = New System.Drawing.Size(197, 24)
+		Me.textBox4.TabIndex = 7
+		Me.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		AddHandler Me.textBox4.TextChanged, AddressOf Me.TextBox4TextChanged
+		'
+		'textBox3
+		'
+		Me.textBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox3.Location = New System.Drawing.Point(570, 418)
+		Me.textBox3.Name = "textBox3"
+		Me.textBox3.Size = New System.Drawing.Size(178, 24)
+		Me.textBox3.TabIndex = 6
+		'
+		'textBox2
+		'
+		Me.textBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox2.Location = New System.Drawing.Point(301, 454)
+		Me.textBox2.Name = "textBox2"
+		Me.textBox2.Size = New System.Drawing.Size(447, 24)
+		Me.textBox2.TabIndex = 5
+		'
+		'dataGridView1
+		'
+		Me.dataGridView1.AllowUserToAddRows = false
+		Me.dataGridView1.AllowUserToDeleteRows = false
+		Me.dataGridView1.AllowUserToOrderColumns = true
+		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.dataGridView1.Location = New System.Drawing.Point(12, 75)
+		Me.dataGridView1.Name = "dataGridView1"
+		Me.dataGridView1.ReadOnly = true
+		Me.dataGridView1.Size = New System.Drawing.Size(736, 337)
+		Me.dataGridView1.TabIndex = 4
+		AddHandler Me.dataGridView1.CellContentClick, AddressOf Me.DataGridView1CellContentClick
+		'
+		'textBox1
+		'
+		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox1.Location = New System.Drawing.Point(301, 418)
+		Me.textBox1.Name = "textBox1"
+		Me.textBox1.Size = New System.Drawing.Size(200, 24)
+		Me.textBox1.TabIndex = 1
+		'
+		'panel1
+		'
+		Me.panel1.BackColor = System.Drawing.SystemColors.ControlDark
+		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel1.Controls.Add(Me.button3)
+		Me.panel1.Controls.Add(Me.button2)
+		Me.panel1.Location = New System.Drawing.Point(12, 512)
+		Me.panel1.Name = "panel1"
+		Me.panel1.Size = New System.Drawing.Size(762, 54)
+		Me.panel1.TabIndex = 8
+		'
+		'button3
+		'
+		Me.button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button3.Location = New System.Drawing.Point(543, 6)
+		Me.button3.Name = "button3"
+		Me.button3.Size = New System.Drawing.Size(204, 43)
+		Me.button3.TabIndex = 1
+		Me.button3.Text = "Cancelar"
+		Me.button3.UseVisualStyleBackColor = true
+		'
+		'button2
+		'
+		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button2.Location = New System.Drawing.Point(28, 6)
+		Me.button2.Name = "button2"
+		Me.button2.Size = New System.Drawing.Size(208, 43)
+		Me.button2.TabIndex = 0
+		Me.button2.Text = "Cargar datos"
+		Me.button2.UseVisualStyleBackColor = true
+		Me.button2.Visible = false
+		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
 		'form_busca_prod
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(943, 466)
+		Me.ClientSize = New System.Drawing.Size(788, 582)
+		Me.Controls.Add(Me.panel2)
+		Me.Controls.Add(Me.panel1)
 		Me.Name = "form_busca_prod"
 		Me.Text = "form_busca_prod"
 		AddHandler Load, AddressOf Me.Form_busca_prodLoad
+		Me.panel2.ResumeLayout(false)
+		Me.panel2.PerformLayout
+		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).EndInit
+		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private button2 As System.Windows.Forms.Button
+	Private button3 As System.Windows.Forms.Button
+	Private panel1 As System.Windows.Forms.Panel
+	Public textBox1 As System.Windows.Forms.TextBox
+	Private dataGridView1 As System.Windows.Forms.DataGridView
+	Public textBox2 As System.Windows.Forms.TextBox
+	Public textBox3 As System.Windows.Forms.TextBox
+	Private textBox4 As System.Windows.Forms.TextBox
+	Private label1 As System.Windows.Forms.Label
+	Private label2 As System.Windows.Forms.Label
+	Private label5 As System.Windows.Forms.Label
+	Private label3 As System.Windows.Forms.Label
+	Private label4 As System.Windows.Forms.Label
+	Private panel2 As System.Windows.Forms.Panel
 End Class
