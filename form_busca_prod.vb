@@ -6,7 +6,15 @@
 ' 
 ' To change this template use Tools | Options | Coding | Edit Standard Headers.
 '
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Drawing.Printing
+Imports Excel = Microsoft.Office.Interop.Excel
+
 Public Partial Class form_busca_prod
+	
+	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
+	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
@@ -45,9 +53,9 @@ Public Partial Class form_busca_prod
 		
 		'cargamos en el Datagrid
 		For Each dgvr As DataGridViewRow In DataGridView1.Rows
-			dgvr.Cells("nro_factura").ToolTipText = "Doble click para selecccionar"
-			dgvr.Cells("ruc").ToolTipText = "Doble click para selecccionar"
-			dgvr.Cells("Telefono").ToolTipText = "Doble click para selecccionar"
+			dgvr.Cells("codigo").ToolTipText = "Doble click para selecccionar"
+			dgvr.Cells("descripcion").ToolTipText = "Doble click para selecccionar"
+			dgvr.Cells("precio1").ToolTipText = "Doble click para selecccionar"
 		Next	
 	End Sub
 	
@@ -59,7 +67,7 @@ Public Partial Class form_busca_prod
 		
 		
 		'traemos los datos de todas las facturas CREDITO
-		Dim consulta As String = "select * from producto"
+		Dim consulta As String = "select * from productos"
 		'Dim datos As System.Data.SqlServerCe.SqlCeDataReader
 		
 		If textBox4.Text.Length >= 1 Then
@@ -94,6 +102,11 @@ Public Partial Class form_busca_prod
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
-		'cargar datos al formulario		
+		'cargar datos al formulario
+		
+	End Sub
+	
+	Sub Button3Click(sender As Object, e As EventArgs)
+		Me.Close()		
 	End Sub
 End Class

@@ -15,3 +15,4 @@ C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\
 C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_proveedor.resources
 C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_recibos.resources
 C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_busca_fact.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_busca_prod.resources
