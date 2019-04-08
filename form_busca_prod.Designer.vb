@@ -35,12 +35,12 @@ Partial Class form_busca_prod
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
 		Me.panel3 = New System.Windows.Forms.Panel()
+		Me.comboBox1 = New System.Windows.Forms.ComboBox()
 		Me.label2 = New System.Windows.Forms.Label()
-		Me.textBox5 = New System.Windows.Forms.TextBox()
+		Me.tx_canti = New System.Windows.Forms.TextBox()
 		Me.label4 = New System.Windows.Forms.Label()
 		Me.label3 = New System.Windows.Forms.Label()
 		Me.label5 = New System.Windows.Forms.Label()
-		Me.textBox3 = New System.Windows.Forms.TextBox()
 		Me.textBox2 = New System.Windows.Forms.TextBox()
 		Me.textBox1 = New System.Windows.Forms.TextBox()
 		Me.label1 = New System.Windows.Forms.Label()
@@ -69,18 +69,26 @@ Partial Class form_busca_prod
 		'panel3
 		'
 		Me.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel3.Controls.Add(Me.comboBox1)
 		Me.panel3.Controls.Add(Me.label2)
-		Me.panel3.Controls.Add(Me.textBox5)
+		Me.panel3.Controls.Add(Me.tx_canti)
 		Me.panel3.Controls.Add(Me.label4)
 		Me.panel3.Controls.Add(Me.label3)
 		Me.panel3.Controls.Add(Me.label5)
-		Me.panel3.Controls.Add(Me.textBox3)
 		Me.panel3.Controls.Add(Me.textBox2)
 		Me.panel3.Controls.Add(Me.textBox1)
 		Me.panel3.Location = New System.Drawing.Point(12, 346)
 		Me.panel3.Name = "panel3"
 		Me.panel3.Size = New System.Drawing.Size(736, 148)
 		Me.panel3.TabIndex = 13
+		'
+		'comboBox1
+		'
+		Me.comboBox1.FormattingEnabled = true
+		Me.comboBox1.Location = New System.Drawing.Point(468, 24)
+		Me.comboBox1.Name = "comboBox1"
+		Me.comboBox1.Size = New System.Drawing.Size(155, 21)
+		Me.comboBox1.TabIndex = 21
 		'
 		'label2
 		'
@@ -92,13 +100,13 @@ Partial Class form_busca_prod
 		Me.label2.Text = "CANTIDAD:"
 		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'textBox5
+		'tx_canti
 		'
-		Me.textBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox5.Location = New System.Drawing.Point(143, 92)
-		Me.textBox5.Name = "textBox5"
-		Me.textBox5.Size = New System.Drawing.Size(81, 24)
-		Me.textBox5.TabIndex = 19
+		Me.tx_canti.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_canti.Location = New System.Drawing.Point(143, 92)
+		Me.tx_canti.Name = "tx_canti"
+		Me.tx_canti.Size = New System.Drawing.Size(81, 24)
+		Me.tx_canti.TabIndex = 19
 		'
 		'label4
 		'
@@ -109,7 +117,6 @@ Partial Class form_busca_prod
 		Me.label4.TabIndex = 18
 		Me.label4.Text = "PRECIO:"
 		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		AddHandler Me.label4.Click, AddressOf Me.Label4Click
 		'
 		'label3
 		'
@@ -130,16 +137,6 @@ Partial Class form_busca_prod
 		Me.label5.TabIndex = 16
 		Me.label5.Text = "CODIGO:"
 		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		AddHandler Me.label5.Click, AddressOf Me.Label5Click
-		'
-		'textBox3
-		'
-		Me.textBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox3.Location = New System.Drawing.Point(468, 17)
-		Me.textBox3.Name = "textBox3"
-		Me.textBox3.Size = New System.Drawing.Size(178, 24)
-		Me.textBox3.TabIndex = 15
-		AddHandler Me.textBox3.TextChanged, AddressOf Me.TextBox3TextChanged
 		'
 		'textBox2
 		'
@@ -162,14 +159,14 @@ Partial Class form_busca_prod
 		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.label1.Location = New System.Drawing.Point(16, 15)
 		Me.label1.Name = "label1"
-		Me.label1.Size = New System.Drawing.Size(162, 29)
+		Me.label1.Size = New System.Drawing.Size(134, 29)
 		Me.label1.TabIndex = 8
 		Me.label1.Text = "Buscar por Nro"
 		'
 		'textBox4
 		'
 		Me.textBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox4.Location = New System.Drawing.Point(184, 12)
+		Me.textBox4.Location = New System.Drawing.Point(156, 12)
 		Me.textBox4.Name = "textBox4"
 		Me.textBox4.Size = New System.Drawing.Size(197, 24)
 		Me.textBox4.TabIndex = 7
@@ -240,7 +237,8 @@ Partial Class form_busca_prod
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
-	Public textBox5 As System.Windows.Forms.TextBox
+	Public comboBox1 As System.Windows.Forms.ComboBox
+	Public tx_canti As System.Windows.Forms.TextBox
 	Private label2 As System.Windows.Forms.Label
 	Private panel3 As System.Windows.Forms.Panel
 	Private button2 As System.Windows.Forms.Button
@@ -249,7 +247,6 @@ Partial Class form_busca_prod
 	Public textBox1 As System.Windows.Forms.TextBox
 	Private dataGridView1 As System.Windows.Forms.DataGridView
 	Public textBox2 As System.Windows.Forms.TextBox
-	Public textBox3 As System.Windows.Forms.TextBox
 	Private textBox4 As System.Windows.Forms.TextBox
 	Private label1 As System.Windows.Forms.Label
 	Private label5 As System.Windows.Forms.Label

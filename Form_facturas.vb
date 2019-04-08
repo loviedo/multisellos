@@ -37,6 +37,7 @@ Public Partial Class Form_facturas
 			'guardamos e imprimimos
 			
 			
+			
 		End If
 
 		
@@ -47,7 +48,10 @@ Public Partial Class Form_facturas
 		'Llamamos al formulario de abm de clientes
 		Dim cli As New form_cliente()
 		If cli.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-        	' traemos el contenido
+			'traemos el contenido
+			tx_nom_cliente.Text = cli.textBox1.Text 'cliente nombre
+			tx_ruc_cliente.text = cli.textBox2.Text 'cliente RUC
+			tx_tel_cliente.Text = cli.textBox3.Text 'cliente tel	
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
@@ -77,18 +81,26 @@ Public Partial Class Form_facturas
 	End Sub
 	
 	Sub Form_facturasLoad(sender As Object, e As EventArgs)
-		Me.CenterToScreen()		
-	End Sub
-	
-	Sub DataGridView1CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+		Me.CenterToScreen()	
 		
+		'chequeamos el contado
+		ch_contado.Checked = true
+		
+		'inicializamos el DGV1
+		dataGridView1.Columns.Add("CODIGO","CODIGO")
+		dataGridView1.Columns.Add("DESCRIPCION","DESCRIPCION")
+		dataGridView1.Columns.Add("CANTIDAD","CANTIDAD")
+		dataGridView1.Columns.Add("PRECIO","PRECIO")
+		dataGridView1.Columns.Add("TOTAL","TOTAL")
 	End Sub
 	
 	Sub Button1Click(sender As Object, e As EventArgs)
 		'Llamamos al formulario de BUSCAR FACTURAS
 		Dim prod As New form_busca_prod()
 		If prod.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-        	' traemos el contenido
+			'Cargamos el gridview segun los datos selecccionados.
+			DataGridView1.Rows.Add(False,prod.TextBox1.Text,prod.TextBox2.Text, prod.tx_canti.Text, prod.comboBox1.text,"002345")
+			DataGridView1.Refresh
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If

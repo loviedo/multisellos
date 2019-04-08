@@ -27,6 +27,8 @@ Public Partial Class form_busca_prod
 	Sub Form_busca_prodLoad(sender As Object, e As EventArgs)
 		Me.CenterToScreen()	
 		
+		tx_canti.Text = 1 'cantidad del producto
+		
 		'cargamos los clientes que hubieran
 		Dim con As New SqlConnection(con_str)
 		Dim cmd As New SqlCommand
@@ -98,12 +100,18 @@ Public Partial Class form_busca_prod
 		
 		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString'codigo
 		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString'descripcion
-		TextBox3.Text = DataGridView1.Item(3, i).Value.ToString'precio
+		'TextBox3.Text = DataGridView1.Item(3, i).Value.ToString'precio //debug
+		
+		'cargamos en el comobobox1 los precios del producto seleccionado
+		comboBox1.Items.Clear
+		comboBox1.Items.Add(DataGridView1.Item(3, i).Value.ToString)
+		comboBox1.Items.Add(DataGridView1.Item(4, i).Value.ToString)
+		comboBox1.Items.Add(DataGridView1.Item(5, i).Value.ToString)
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
-		'cargar datos al formulario
-		
+		'devolver datos al formulario padre
+		Me.DialogResult = System.Windows.Forms.DialogResult.OK	
 	End Sub
 	
 	Sub Button3Click(sender As Object, e As EventArgs)

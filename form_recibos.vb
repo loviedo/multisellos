@@ -39,7 +39,10 @@ Public Partial Class form_recibos
 		'Llamamos al formulario de abm de clientes
 		Dim cli As New form_cliente()
 		If cli.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-        	' traemos el contenido
+			' traemos el contenido
+			tx_nom_cliente.Text = cli.textBox1.Text 'cliente nombre
+			tx_ruc_cliente.text = cli.textBox2.Text 'cliente RUC
+			tx_tel_cliente.Text = cli.textBox3.Text 'cliente tel	
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
@@ -55,7 +58,8 @@ Public Partial Class form_recibos
 		'Llamamos al formulario de BUSCAR FACTURAS
 		Dim fact As New form_busca_fact()
 		If fact.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-        	' traemos el contenido
+			' traemos el contenido
+			tx_factu.Text = "asd"
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If

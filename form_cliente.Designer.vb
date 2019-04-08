@@ -240,7 +240,6 @@ Partial Class form_cliente
 		Me.button2.TabIndex = 0
 		Me.button2.Text = "Cargar datos"
 		Me.button2.UseVisualStyleBackColor = true
-		Me.button2.Visible = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
 		'form_cliente

@@ -34,6 +34,8 @@ Partial Class Form_facturas
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.label9 = New System.Windows.Forms.Label()
+		Me.button1 = New System.Windows.Forms.Button()
 		Me.label1 = New System.Windows.Forms.Label()
 		Me.textBox2 = New System.Windows.Forms.TextBox()
 		Me.ch_credito = New System.Windows.Forms.CheckBox()
@@ -56,8 +58,6 @@ Partial Class Form_facturas
 		Me.tx_nom_cliente = New System.Windows.Forms.TextBox()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.button2 = New System.Windows.Forms.Button()
-		Me.button1 = New System.Windows.Forms.Button()
-		Me.label9 = New System.Windows.Forms.Label()
 		Me.panel2.SuspendLayout
 		Me.panel4.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
@@ -87,6 +87,27 @@ Partial Class Form_facturas
 		Me.panel2.Name = "panel2"
 		Me.panel2.Size = New System.Drawing.Size(987, 607)
 		Me.panel2.TabIndex = 7
+		'
+		'label9
+		'
+		Me.label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label9.Location = New System.Drawing.Point(7, 184)
+		Me.label9.Name = "label9"
+		Me.label9.Size = New System.Drawing.Size(152, 29)
+		Me.label9.TabIndex = 15
+		Me.label9.Text = "PRODUCTOS"
+		Me.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'button1
+		'
+		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button1.Location = New System.Drawing.Point(167, 187)
+		Me.button1.Name = "button1"
+		Me.button1.Size = New System.Drawing.Size(31, 23)
+		Me.button1.TabIndex = 14
+		Me.button1.Text = "+"
+		Me.button1.UseVisualStyleBackColor = true
+		AddHandler Me.button1.Click, AddressOf Me.Button1Click
 		'
 		'label1
 		'
@@ -264,7 +285,6 @@ Partial Class Form_facturas
 		Me.dataGridView1.Name = "dataGridView1"
 		Me.dataGridView1.Size = New System.Drawing.Size(979, 347)
 		Me.dataGridView1.TabIndex = 3
-		AddHandler Me.dataGridView1.CellContentClick, AddressOf Me.DataGridView1CellContentClick
 		'
 		'checito
 		'
@@ -316,27 +336,6 @@ Partial Class Form_facturas
 		Me.button2.Text = "Cancelar"
 		Me.button2.UseVisualStyleBackColor = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
-		'
-		'button1
-		'
-		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button1.Location = New System.Drawing.Point(167, 187)
-		Me.button1.Name = "button1"
-		Me.button1.Size = New System.Drawing.Size(31, 23)
-		Me.button1.TabIndex = 14
-		Me.button1.Text = "+"
-		Me.button1.UseVisualStyleBackColor = true
-		AddHandler Me.button1.Click, AddressOf Me.Button1Click
-		'
-		'label9
-		'
-		Me.label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label9.Location = New System.Drawing.Point(7, 184)
-		Me.label9.Name = "label9"
-		Me.label9.Size = New System.Drawing.Size(152, 29)
-		Me.label9.TabIndex = 15
-		Me.label9.Text = "PRODUCTOS"
-		Me.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
 		'Form_facturas
 		'
