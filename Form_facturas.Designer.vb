@@ -34,6 +34,7 @@ Partial Class Form_facturas
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.button5 = New System.Windows.Forms.Button()
 		Me.label9 = New System.Windows.Forms.Label()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.label1 = New System.Windows.Forms.Label()
@@ -44,7 +45,7 @@ Partial Class Form_facturas
 		Me.label8 = New System.Windows.Forms.Label()
 		Me.label7 = New System.Windows.Forms.Label()
 		Me.label6 = New System.Windows.Forms.Label()
-		Me.textBox1 = New System.Windows.Forms.TextBox()
+		Me.tx_factu_num = New System.Windows.Forms.TextBox()
 		Me.label5 = New System.Windows.Forms.Label()
 		Me.label4 = New System.Windows.Forms.Label()
 		Me.label3 = New System.Windows.Forms.Label()
@@ -67,6 +68,7 @@ Partial Class Form_facturas
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.button5)
 		Me.panel2.Controls.Add(Me.label9)
 		Me.panel2.Controls.Add(Me.button1)
 		Me.panel2.Controls.Add(Me.label1)
@@ -87,6 +89,18 @@ Partial Class Form_facturas
 		Me.panel2.Name = "panel2"
 		Me.panel2.Size = New System.Drawing.Size(987, 607)
 		Me.panel2.TabIndex = 7
+		'
+		'button5
+		'
+		Me.button5.DialogResult = System.Windows.Forms.DialogResult.Ignore
+		Me.button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button5.Location = New System.Drawing.Point(204, 187)
+		Me.button5.Name = "button5"
+		Me.button5.Size = New System.Drawing.Size(31, 23)
+		Me.button5.TabIndex = 16
+		Me.button5.Text = "x"
+		Me.button5.UseVisualStyleBackColor = true
+		AddHandler Me.button5.Click, AddressOf Me.Button5Click
 		'
 		'label9
 		'
@@ -155,7 +169,7 @@ Partial Class Form_facturas
 		Me.panel4.Controls.Add(Me.label8)
 		Me.panel4.Controls.Add(Me.label7)
 		Me.panel4.Controls.Add(Me.label6)
-		Me.panel4.Controls.Add(Me.textBox1)
+		Me.panel4.Controls.Add(Me.tx_factu_num)
 		Me.panel4.Controls.Add(Me.label5)
 		Me.panel4.Location = New System.Drawing.Point(616, 14)
 		Me.panel4.Name = "panel4"
@@ -192,15 +206,15 @@ Partial Class Form_facturas
 		Me.label6.Text = "NRO:"
 		Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'textBox1
+		'tx_factu_num
 		'
-		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(209, 12)
-		Me.textBox1.Name = "textBox1"
-		Me.textBox1.ShortcutsEnabled = false
-		Me.textBox1.Size = New System.Drawing.Size(145, 26)
-		Me.textBox1.TabIndex = 8
-		Me.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.tx_factu_num.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_factu_num.Location = New System.Drawing.Point(209, 12)
+		Me.tx_factu_num.Name = "tx_factu_num"
+		Me.tx_factu_num.ShortcutsEnabled = false
+		Me.tx_factu_num.Size = New System.Drawing.Size(145, 26)
+		Me.tx_factu_num.TabIndex = 8
+		Me.tx_factu_num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'label5
 		'
@@ -355,6 +369,7 @@ Partial Class Form_facturas
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private button5 As System.Windows.Forms.Button
 	Private button1 As System.Windows.Forms.Button
 	Private label9 As System.Windows.Forms.Label
 	Private textBox2 As System.Windows.Forms.TextBox
@@ -374,7 +389,7 @@ Partial Class Form_facturas
 	Private label3 As System.Windows.Forms.Label
 	Private label4 As System.Windows.Forms.Label
 	Private label5 As System.Windows.Forms.Label
-	Private textBox1 As System.Windows.Forms.TextBox
+	Private tx_factu_num As System.Windows.Forms.TextBox
 	Private label6 As System.Windows.Forms.Label
 	Private label7 As System.Windows.Forms.Label
 	Private label8 As System.Windows.Forms.Label
