@@ -37,7 +37,10 @@ Public Partial Class Form_facturas
 			'GUARDAMOS
 			MessageBox.Show("cargar")
 			
+			Dim conn = New System.Data.SqlClient.SqlConnection(con_str)
 			
+			'insertamos primero los productos
+
 			
 			'IMPRIMIMOS
 			
@@ -118,26 +121,6 @@ Public Partial Class Form_facturas
     	End If
     	prod.Dispose()	
 	End Sub
-	
-	Sub Button5Click(sender As Object, e As EventArgs)
-		'borramos los checked en el DGV1
-		If DataGridView1.Rows.Count() > 0 Then
-			For i As Integer = DataGridView1.Rows.Count() - 1 To 0 Step -1
-            	Dim delete As Boolean
-            	delete = DataGridView1.Rows(i).Cells(0).Value
-
-	            'si esta chequeado, borrar
-	            If delete Then
-	                Dim row As DataGridViewRow
-	                row = DataGridView1.Rows(i)
-	                DataGridView1.Rows.Remove(row)
-	            End If
-			Next
-			DataGridView1.Refresh
-		End If
-		MessageBox.show("sdfsdf")
-	End Sub
-	
 	
 	
 	
@@ -301,4 +284,22 @@ Public Partial Class Form_facturas
         Return cadena
     End Function
 	
+	
+	Sub Button6Click(sender As Object, e As EventArgs)
+		If DataGridView1.Rows.Count() > 0 Then
+			For i As Integer = DataGridView1.Rows.Count() - 1 To 0 Step -1
+            	Dim delete As Boolean
+            	delete = DataGridView1.Rows(i).Cells(0).Value
+
+	            'si esta chequeado, borrar
+	            If delete Then
+	                Dim row As DataGridViewRow
+	                row = DataGridView1.Rows(i)
+	                DataGridView1.Rows.Remove(row)
+	            End If
+			Next
+			DataGridView1.Refresh
+		End If
+		MessageBox.show("sdfsdf")
+	End Sub
 End Class

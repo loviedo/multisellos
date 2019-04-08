@@ -26,6 +26,7 @@ Public Partial Class form_busca_prod
 	
 	Sub Form_busca_prodLoad(sender As Object, e As EventArgs)
 		Me.CenterToScreen()	
+		comboBox1.Text= "0"
 		
 		tx_canti.Text = 1 'cantidad del producto
 		

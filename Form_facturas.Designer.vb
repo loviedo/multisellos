@@ -34,7 +34,7 @@ Partial Class Form_facturas
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
-		Me.button5 = New System.Windows.Forms.Button()
+		Me.button6 = New System.Windows.Forms.Button()
 		Me.label9 = New System.Windows.Forms.Label()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.label1 = New System.Windows.Forms.Label()
@@ -68,7 +68,7 @@ Partial Class Form_facturas
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.panel2.Controls.Add(Me.button5)
+		Me.panel2.Controls.Add(Me.button6)
 		Me.panel2.Controls.Add(Me.label9)
 		Me.panel2.Controls.Add(Me.button1)
 		Me.panel2.Controls.Add(Me.label1)
@@ -90,17 +90,16 @@ Partial Class Form_facturas
 		Me.panel2.Size = New System.Drawing.Size(987, 607)
 		Me.panel2.TabIndex = 7
 		'
-		'button5
+		'button6
 		'
-		Me.button5.DialogResult = System.Windows.Forms.DialogResult.Ignore
-		Me.button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button5.Location = New System.Drawing.Point(204, 187)
-		Me.button5.Name = "button5"
-		Me.button5.Size = New System.Drawing.Size(31, 23)
-		Me.button5.TabIndex = 16
-		Me.button5.Text = "x"
-		Me.button5.UseVisualStyleBackColor = true
-		AddHandler Me.button5.Click, AddressOf Me.Button5Click
+		Me.button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button6.Location = New System.Drawing.Point(238, 187)
+		Me.button6.Name = "button6"
+		Me.button6.Size = New System.Drawing.Size(75, 23)
+		Me.button6.TabIndex = 17
+		Me.button6.Text = "eliminar"
+		Me.button6.UseVisualStyleBackColor = true
+		AddHandler Me.button6.Click, AddressOf Me.Button6Click
 		'
 		'label9
 		'
@@ -117,9 +116,9 @@ Partial Class Form_facturas
 		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.button1.Location = New System.Drawing.Point(167, 187)
 		Me.button1.Name = "button1"
-		Me.button1.Size = New System.Drawing.Size(31, 23)
+		Me.button1.Size = New System.Drawing.Size(65, 23)
 		Me.button1.TabIndex = 14
-		Me.button1.Text = "+"
+		Me.button1.Text = "agregar"
 		Me.button1.UseVisualStyleBackColor = true
 		AddHandler Me.button1.Click, AddressOf Me.Button1Click
 		'
@@ -369,7 +368,7 @@ Partial Class Form_facturas
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
-	Private button5 As System.Windows.Forms.Button
+	Private button6 As System.Windows.Forms.Button
 	Private button1 As System.Windows.Forms.Button
 	Private label9 As System.Windows.Forms.Label
 	Private textBox2 As System.Windows.Forms.TextBox

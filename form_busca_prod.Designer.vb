@@ -85,7 +85,7 @@ Partial Class form_busca_prod
 		'comboBox1
 		'
 		Me.comboBox1.FormattingEnabled = true
-		Me.comboBox1.Location = New System.Drawing.Point(468, 24)
+		Me.comboBox1.Location = New System.Drawing.Point(564, 24)
 		Me.comboBox1.Name = "comboBox1"
 		Me.comboBox1.Size = New System.Drawing.Size(155, 21)
 		Me.comboBox1.TabIndex = 21
@@ -111,7 +111,7 @@ Partial Class form_busca_prod
 		'label4
 		'
 		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(346, 16)
+		Me.label4.Location = New System.Drawing.Point(442, 16)
 		Me.label4.Name = "label4"
 		Me.label4.Size = New System.Drawing.Size(116, 29)
 		Me.label4.TabIndex = 18
@@ -131,7 +131,7 @@ Partial Class form_busca_prod
 		'label5
 		'
 		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(3, 12)
+		Me.label5.Location = New System.Drawing.Point(12, 16)
 		Me.label5.Name = "label5"
 		Me.label5.Size = New System.Drawing.Size(111, 29)
 		Me.label5.TabIndex = 16
@@ -149,7 +149,7 @@ Partial Class form_busca_prod
 		'textBox1
 		'
 		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(120, 16)
+		Me.textBox1.Location = New System.Drawing.Point(129, 20)
 		Me.textBox1.Name = "textBox1"
 		Me.textBox1.Size = New System.Drawing.Size(200, 24)
 		Me.textBox1.TabIndex = 13
