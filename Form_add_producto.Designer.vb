@@ -48,6 +48,8 @@ Partial Class Form_add_producto
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.button2 = New System.Windows.Forms.Button()
 		Me.button1 = New System.Windows.Forms.Button()
+		Me.label5 = New System.Windows.Forms.Label()
+		Me.combo_iva = New System.Windows.Forms.ComboBox()
 		Me.panel2.SuspendLayout
 		Me.panel1.SuspendLayout
 		Me.SuspendLayout
@@ -55,6 +57,8 @@ Partial Class Form_add_producto
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.combo_iva)
+		Me.panel2.Controls.Add(Me.label5)
 		Me.panel2.Controls.Add(Me.label6)
 		Me.panel2.Controls.Add(Me.tx_precio3)
 		Me.panel2.Controls.Add(Me.label2)
@@ -103,7 +107,7 @@ Partial Class Form_add_producto
 		'label7
 		'
 		Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label7.Location = New System.Drawing.Point(28, 263)
+		Me.label7.Location = New System.Drawing.Point(28, 285)
 		Me.label7.Name = "label7"
 		Me.label7.Size = New System.Drawing.Size(183, 29)
 		Me.label7.TabIndex = 23
@@ -113,7 +117,7 @@ Partial Class Form_add_producto
 		'tx_des
 		'
 		Me.tx_des.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_des.Location = New System.Drawing.Point(223, 263)
+		Me.tx_des.Location = New System.Drawing.Point(223, 285)
 		Me.tx_des.Multiline = true
 		Me.tx_des.Name = "tx_des"
 		Me.tx_des.Size = New System.Drawing.Size(360, 49)
@@ -154,7 +158,7 @@ Partial Class Form_add_producto
 		'label3
 		'
 		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(68, 98)
+		Me.label3.Location = New System.Drawing.Point(74, 99)
 		Me.label3.Name = "label3"
 		Me.label3.Size = New System.Drawing.Size(143, 29)
 		Me.label3.TabIndex = 14
@@ -211,6 +215,26 @@ Partial Class Form_add_producto
 		Me.button1.UseVisualStyleBackColor = true
 		AddHandler Me.button1.Click, AddressOf Me.Button1Click
 		'
+		'label5
+		'
+		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label5.Location = New System.Drawing.Point(134, 247)
+		Me.label5.Name = "label5"
+		Me.label5.Size = New System.Drawing.Size(69, 29)
+		Me.label5.TabIndex = 27
+		Me.label5.Text = "IVA:"
+		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'combo_iva
+		'
+		Me.combo_iva.Font = New System.Drawing.Font("Microsoft Sans Serif", 11!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.combo_iva.FormattingEnabled = true
+		Me.combo_iva.Items.AddRange(New Object() {"10%", "5%"})
+		Me.combo_iva.Location = New System.Drawing.Point(223, 247)
+		Me.combo_iva.Name = "combo_iva"
+		Me.combo_iva.Size = New System.Drawing.Size(360, 26)
+		Me.combo_iva.TabIndex = 28
+		'
 		'Form_add_producto
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -226,6 +250,8 @@ Partial Class Form_add_producto
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private label5 As System.Windows.Forms.Label
+	Private combo_iva As System.Windows.Forms.ComboBox
 	Private tx_precio3 As System.Windows.Forms.TextBox
 	Private label6 As System.Windows.Forms.Label
 	Private button1 As System.Windows.Forms.Button

@@ -85,7 +85,7 @@ Partial Class form_busca_prod
 		'comboBox1
 		'
 		Me.comboBox1.FormattingEnabled = true
-		Me.comboBox1.Location = New System.Drawing.Point(564, 24)
+		Me.comboBox1.Location = New System.Drawing.Point(183, 109)
 		Me.comboBox1.Name = "comboBox1"
 		Me.comboBox1.Size = New System.Drawing.Size(155, 21)
 		Me.comboBox1.TabIndex = 21
@@ -93,27 +93,29 @@ Partial Class form_busca_prod
 		'label2
 		'
 		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label2.Location = New System.Drawing.Point(4, 88)
+		Me.label2.Location = New System.Drawing.Point(4, 75)
 		Me.label2.Name = "label2"
 		Me.label2.Size = New System.Drawing.Size(133, 29)
 		Me.label2.TabIndex = 20
 		Me.label2.Text = "CANTIDAD:"
 		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		AddHandler Me.label2.Click, AddressOf Me.Label2Click
 		'
 		'tx_canti
 		'
 		Me.tx_canti.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_canti.Location = New System.Drawing.Point(143, 92)
+		Me.tx_canti.Location = New System.Drawing.Point(183, 79)
 		Me.tx_canti.Name = "tx_canti"
 		Me.tx_canti.Size = New System.Drawing.Size(81, 24)
 		Me.tx_canti.TabIndex = 19
+		AddHandler Me.tx_canti.TextChanged, AddressOf Me.Tx_cantiTextChanged
 		'
 		'label4
 		'
 		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(442, 16)
+		Me.label4.Location = New System.Drawing.Point(4, 103)
 		Me.label4.Name = "label4"
-		Me.label4.Size = New System.Drawing.Size(116, 29)
+		Me.label4.Size = New System.Drawing.Size(103, 29)
 		Me.label4.TabIndex = 18
 		Me.label4.Text = "PRECIO:"
 		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -121,7 +123,7 @@ Partial Class form_busca_prod
 		'label3
 		'
 		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(1, 47)
+		Me.label3.Location = New System.Drawing.Point(-1, 45)
 		Me.label3.Name = "label3"
 		Me.label3.Size = New System.Drawing.Size(178, 29)
 		Me.label3.TabIndex = 17
@@ -131,7 +133,7 @@ Partial Class form_busca_prod
 		'label5
 		'
 		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(12, 16)
+		Me.label5.Location = New System.Drawing.Point(4, 15)
 		Me.label5.Name = "label5"
 		Me.label5.Size = New System.Drawing.Size(111, 29)
 		Me.label5.TabIndex = 16
@@ -141,7 +143,7 @@ Partial Class form_busca_prod
 		'textBox2
 		'
 		Me.textBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox2.Location = New System.Drawing.Point(185, 51)
+		Me.textBox2.Location = New System.Drawing.Point(183, 49)
 		Me.textBox2.Name = "textBox2"
 		Me.textBox2.Size = New System.Drawing.Size(416, 24)
 		Me.textBox2.TabIndex = 14
@@ -149,7 +151,7 @@ Partial Class form_busca_prod
 		'textBox1
 		'
 		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(129, 20)
+		Me.textBox1.Location = New System.Drawing.Point(183, 20)
 		Me.textBox1.Name = "textBox1"
 		Me.textBox1.Size = New System.Drawing.Size(200, 24)
 		Me.textBox1.TabIndex = 13
@@ -178,6 +180,7 @@ Partial Class form_busca_prod
 		Me.dataGridView1.AllowUserToAddRows = false
 		Me.dataGridView1.AllowUserToDeleteRows = false
 		Me.dataGridView1.AllowUserToOrderColumns = true
+		Me.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.dataGridView1.Location = New System.Drawing.Point(12, 47)
 		Me.dataGridView1.Name = "dataGridView1"

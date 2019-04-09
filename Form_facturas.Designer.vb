@@ -292,6 +292,7 @@ Partial Class Form_facturas
 		Me.dataGridView1.AllowUserToAddRows = false
 		Me.dataGridView1.AllowUserToDeleteRows = false
 		Me.dataGridView1.AllowUserToOrderColumns = true
+		Me.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.dataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.checito})
 		Me.dataGridView1.Location = New System.Drawing.Point(3, 213)
@@ -304,6 +305,7 @@ Partial Class Form_facturas
 		Me.checito.HeaderText = "Seleccionar"
 		Me.checito.Name = "checito"
 		Me.checito.ToolTipText = "Chequear para seleccionar item"
+		Me.checito.Width = 69
 		'
 		'button3
 		'

@@ -116,6 +116,7 @@ Public Partial Class form_busca_prod
 	End Sub
 	
 	Sub Button3Click(sender As Object, e As EventArgs)
+		Me.DialogResult = System.Windows.Forms.DialogResult.OK
 		Me.Close()		
 	End Sub
 End Class

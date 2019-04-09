@@ -62,7 +62,7 @@ Partial Class form_recibos
 		Me.panel1.BackColor = System.Drawing.SystemColors.ControlDark
 		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel1.Controls.Add(Me.button2)
-		Me.panel1.Location = New System.Drawing.Point(12, 501)
+		Me.panel1.Location = New System.Drawing.Point(12, 454)
 		Me.panel1.Name = "panel1"
 		Me.panel1.Size = New System.Drawing.Size(974, 53)
 		Me.panel1.TabIndex = 7
@@ -71,7 +71,7 @@ Partial Class form_recibos
 		'
 		Me.button2.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button2.Location = New System.Drawing.Point(788, 4)
+		Me.button2.Location = New System.Drawing.Point(808, 3)
 		Me.button2.Name = "button2"
 		Me.button2.Size = New System.Drawing.Size(161, 44)
 		Me.button2.TabIndex = 2
@@ -116,7 +116,7 @@ Partial Class form_recibos
 		Me.textBox2.Location = New System.Drawing.Point(21, 255)
 		Me.textBox2.Multiline = true
 		Me.textBox2.Name = "textBox2"
-		Me.textBox2.Size = New System.Drawing.Size(928, 65)
+		Me.textBox2.Size = New System.Drawing.Size(948, 65)
 		Me.textBox2.TabIndex = 18
 		Me.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
@@ -257,7 +257,7 @@ Partial Class form_recibos
 		'
 		Me.button4.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button4.Location = New System.Drawing.Point(768, 437)
+		Me.button4.Location = New System.Drawing.Point(788, 390)
 		Me.button4.Name = "button4"
 		Me.button4.Size = New System.Drawing.Size(194, 46)
 		Me.button4.TabIndex = 9
@@ -269,7 +269,7 @@ Partial Class form_recibos
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(998, 566)
+		Me.ClientSize = New System.Drawing.Size(998, 520)
 		Me.Controls.Add(Me.button4)
 		Me.Controls.Add(Me.panel2)
 		Me.Controls.Add(Me.panel1)

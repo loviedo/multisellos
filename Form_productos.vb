@@ -33,9 +33,29 @@ Public Partial Class Form_productos
 		Dim add_pro As New Form_add_producto()
 		If add_pro.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
 			'traemos el contenido
-			'tx_nom_cliente.Text = cliente.TextBox1.Text
-        	'tx_ruc_cliente.Text = cliente.TextBox2.Text
-        	'tx_tel_cliente.Text = cliente.TextBox3.Text
+			
+			Dim con As New SqlConnection(con_str)
+			Dim cmd As New SqlCommand
+			
+			Dim consulta As String = "Select id, codigo, descripcion, precio1, precio2 , precio3, iva from productos"
+			
+			Try
+				con.Open()
+				cmd = con.CreateCommand()
+			    cmd.CommandText = consulta
+			    Dim dt = new DataTable()
+			    dt.Load(cmd.ExecuteReader())
+		       
+				DataGridView1.AutoGenerateColumns = True
+				DataGridView1.DataSource = dt
+				DataGridView1.Refresh
+			    
+			    
+			Catch ex As Exception
+				MessageBox.Show(ex.Message.ToString)
+			Finally
+			    con.Close()
+			End Try
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
@@ -62,7 +82,7 @@ Public Partial Class Form_productos
 		Dim con As New SqlConnection(con_str)
 		Dim cmd As New SqlCommand
 		
-		Dim consulta As String = "Select id, codigo, descripcion, precio1, precio2 , precio3 from productos"
+		Dim consulta As String = "Select id, codigo, descripcion, precio1, precio2 , precio3, iva from productos"
 		'Dim datos As System.Data.SqlServerCe.SqlCeDataReader
 		
 		If textBox4.Text.Length >= 1 Then
@@ -96,7 +116,7 @@ Public Partial Class Form_productos
 		Dim cmd As New SqlCommand
 		
 		
-		Dim consulta As String = "Select id, codigo, descripcion, precio1, precio2 , precio3 from productos"
+		Dim consulta As String = "Select id, codigo, descripcion, precio1, precio2 , precio3, iva from productos"
 		
 		Try
 			con.Open()
@@ -121,4 +141,5 @@ Public Partial Class Form_productos
 			dgvr.Cells("descripcion").ToolTipText = "Doble click para selecccionar"
 		Next		
 	End Sub
+
 End Class
