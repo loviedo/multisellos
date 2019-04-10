@@ -12,6 +12,7 @@ Imports System.Data.SqlClient
 Public Partial Class Form_add_producto
 	
 	Dim con_str As String
+	Public iva As Integer = 0
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
@@ -33,7 +34,7 @@ Public Partial Class Form_add_producto
 	Sub Button1Click(sender As Object, e As EventArgs)
 		'guardamos el valor de los productos	
 		Dim conn = New System.Data.SqlClient.SqlConnection(con_str)
-		Dim iva As Integer
+		'Dim iva As Integer
 		
 		If combo_iva.SelectedItem = "10%" Then
 			iva = 10

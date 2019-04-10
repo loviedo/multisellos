@@ -14,8 +14,8 @@ Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Partial Class Form_facturas
 	
-	Dim con_str As String
-	con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
+	
+	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
 	
 	Dim tipo_factura = "CONTADO"
 
@@ -39,16 +39,19 @@ Public Partial Class Form_facturas
 			
 			Dim conn = New System.Data.SqlClient.SqlConnection(con_str)
 			
-			'INSERTAMOS LOS PRODUCTOS CARGADOS
-			Dim cli_ins As New SqlCommand("INSERT INTO productos ([codigo], [descripcion], [precio1], [precio2], [precio3], [iva])" &
-				" VALUES(@codigo, @descripcion, @precio1, @precio2, @precio3, @iva)", conn)
+			'INSERTAMOS DATOS DE FACTURA
+			Dim cli_ins As New SqlCommand("INSERT INTO facturas ([nro_factura], [id_cliente], [tipo_fact], [rk_fact_prod], [monto_total], [iva_10_total], [iva_5_total], [exenta_total])" &
+				" VALUES(@nro_factura, @id_cliente, @tipo_fact, @rk_fact_prod, @monto_total, @iva_10_total, @iva_5_total, @exenta_total)", conn)
 
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@codigo", .SqlDbType = SqlDbType.NVarChar, .Value = tx_cod.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@descripcion", .SqlDbType = SqlDbType.NVarChar, .Value = tx_des.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@precio1", .SqlDbType = SqlDbType.Int, .Value = tx_precio1.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@precio2", .SqlDbType = SqlDbType.Int, .Value = tx_precio2.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@precio3", .SqlDbType = SqlDbType.Int, .Value = tx_precio3.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@iva", .SqlDbType = SqlDbType.Int, .Value = iva})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@nro_factura", .SqlDbType = SqlDbType.NVarChar, .Value = tx_nom_cliente.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@id_cliente", .SqlDbType = SqlDbType.NVarChar, .Value = tx_ruc_cliente.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@tipo_fact", .SqlDbType = SqlDbType.Int, .Value = tx_precio1.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@rk_fact_prod", .SqlDbType = SqlDbType.Int, .Value = tx_precio2.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@monto_total", .SqlDbType = SqlDbType.Int, .Value = tx_precio3.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@iva_10_total", .SqlDbType = SqlDbType.Int, .Value = tx_iva_10.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@iva_5_total", .SqlDbType = SqlDbType.Int, .Value = tx_iva_5.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@exenta_total", .SqlDbType = SqlDbType.Int, .Value = tx_exenta.Text})
+			
 			
 			If tx_cod.TextLength > 0 And tx_des.TextLength > 0 And tx_precio1.TextLength >0 Then
 				'si no esta vacio insertamos.
@@ -136,7 +139,11 @@ Public Partial Class Form_facturas
 		dataGridView1.Columns.Add("DESCRIPCION","DESCRIPCION")
 		dataGridView1.Columns.Add("CANTIDAD","CANTIDAD")
 		dataGridView1.Columns.Add("PRECIO","PRECIO")
-		dataGridView1.Columns.Add("TOTAL","TOTAL")
+		dataGridView1.Columns.Add("PRECIO TOTAL","PRECIO TOTAL")
+		dataGridView1.Columns.Add("IVA 10%","IVA 10%")
+		dataGridView1.Columns.Add("IVA 5%","IVA 5%")
+		dataGridView1.Columns.Add("MONTO TOTAL","MONTO TOTAL")'total + iva / total exento
+		
 	End Sub
 	
 	Sub Button1Click(sender As Object, e As EventArgs)
@@ -149,8 +156,25 @@ Public Partial Class Form_facturas
 			Dim total As Integer 
 			total = (Convert.ToInt32(prod.tx_canti.Text))*(Convert.ToInt32(prod.comboBox1.Text))
 			
-			DataGridView1.Rows.Add(False,prod.TextBox1.Text,prod.TextBox2.Text, prod.tx_canti.Text, prod.comboBox1.text,total.ToString)
+			DataGridView1.Rows.Add(False, prod.TextBox1.Text, prod.TextBox2.Text, prod.tx_canti.Text, prod.comboBox1.text,total.ToString)
 			DataGridView1.Refresh
+			
+			'recorremos el dgv para sumar los ivas y el total
+			Dim iva_10 As Integer = 0
+			Dim iva_5 As Integer = 0
+			Dim iva_total As Integer = 0
+			Dim monto_total As Integer = 0
+			
+			For Each row As DataGridViewRow In dataGridView1.rows
+				
+				If prod.iva = 10 Then 
+					iva_10 = iva_10 + (iva_10*10/100)
+				ElseIf prod.iva = 5 Then 
+					iva_5 = iva_5 + (iva_10*5/100)
+				End If
+			Next
+			
+			
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If

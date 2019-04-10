@@ -59,6 +59,12 @@ Partial Class Form_facturas
 		Me.tx_nom_cliente = New System.Windows.Forms.TextBox()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.button2 = New System.Windows.Forms.Button()
+		Me.label10 = New System.Windows.Forms.Label()
+		Me.tx_iva_10 = New System.Windows.Forms.TextBox()
+		Me.label11 = New System.Windows.Forms.Label()
+		Me.tx_iva_5 = New System.Windows.Forms.TextBox()
+		Me.label12 = New System.Windows.Forms.Label()
+		Me.tx_total_iva = New System.Windows.Forms.TextBox()
 		Me.panel2.SuspendLayout
 		Me.panel4.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
@@ -68,6 +74,12 @@ Partial Class Form_facturas
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.label12)
+		Me.panel2.Controls.Add(Me.tx_total_iva)
+		Me.panel2.Controls.Add(Me.label11)
+		Me.panel2.Controls.Add(Me.tx_iva_5)
+		Me.panel2.Controls.Add(Me.label10)
+		Me.panel2.Controls.Add(Me.tx_iva_10)
 		Me.panel2.Controls.Add(Me.button6)
 		Me.panel2.Controls.Add(Me.label9)
 		Me.panel2.Controls.Add(Me.button1)
@@ -87,13 +99,13 @@ Partial Class Form_facturas
 		Me.panel2.Controls.Add(Me.tx_nom_cliente)
 		Me.panel2.Location = New System.Drawing.Point(12, 12)
 		Me.panel2.Name = "panel2"
-		Me.panel2.Size = New System.Drawing.Size(987, 607)
+		Me.panel2.Size = New System.Drawing.Size(987, 641)
 		Me.panel2.TabIndex = 7
 		'
 		'button6
 		'
 		Me.button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button6.Location = New System.Drawing.Point(238, 187)
+		Me.button6.Location = New System.Drawing.Point(238, 172)
 		Me.button6.Name = "button6"
 		Me.button6.Size = New System.Drawing.Size(75, 23)
 		Me.button6.TabIndex = 17
@@ -104,7 +116,7 @@ Partial Class Form_facturas
 		'label9
 		'
 		Me.label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label9.Location = New System.Drawing.Point(7, 184)
+		Me.label9.Location = New System.Drawing.Point(7, 169)
 		Me.label9.Name = "label9"
 		Me.label9.Size = New System.Drawing.Size(152, 29)
 		Me.label9.TabIndex = 15
@@ -114,7 +126,7 @@ Partial Class Form_facturas
 		'button1
 		'
 		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button1.Location = New System.Drawing.Point(167, 187)
+		Me.button1.Location = New System.Drawing.Point(167, 172)
 		Me.button1.Name = "button1"
 		Me.button1.Size = New System.Drawing.Size(65, 23)
 		Me.button1.TabIndex = 14
@@ -125,7 +137,7 @@ Partial Class Form_facturas
 		'label1
 		'
 		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label1.Location = New System.Drawing.Point(3, 129)
+		Me.label1.Location = New System.Drawing.Point(3, 123)
 		Me.label1.Name = "label1"
 		Me.label1.Size = New System.Drawing.Size(195, 29)
 		Me.label1.TabIndex = 13
@@ -135,7 +147,7 @@ Partial Class Form_facturas
 		'textBox2
 		'
 		Me.textBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox2.Location = New System.Drawing.Point(204, 129)
+		Me.textBox2.Location = New System.Drawing.Point(204, 123)
 		Me.textBox2.Multiline = true
 		Me.textBox2.Name = "textBox2"
 		Me.textBox2.Size = New System.Drawing.Size(273, 29)
@@ -144,6 +156,7 @@ Partial Class Form_facturas
 		'
 		'ch_credito
 		'
+		Me.ch_credito.Font = New System.Drawing.Font("Microsoft Sans Serif", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.ch_credito.Location = New System.Drawing.Point(788, 135)
 		Me.ch_credito.Name = "ch_credito"
 		Me.ch_credito.Size = New System.Drawing.Size(125, 24)
@@ -154,6 +167,7 @@ Partial Class Form_facturas
 		'
 		'ch_contado
 		'
+		Me.ch_contado.Font = New System.Drawing.Font("Microsoft Sans Serif", 11!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.ch_contado.Location = New System.Drawing.Point(657, 135)
 		Me.ch_contado.Name = "ch_contado"
 		Me.ch_contado.Size = New System.Drawing.Size(125, 24)
@@ -279,7 +293,7 @@ Partial Class Form_facturas
 		'
 		Me.button4.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button4.Location = New System.Drawing.Point(788, 566)
+		Me.button4.Location = New System.Drawing.Point(777, 598)
 		Me.button4.Name = "button4"
 		Me.button4.Size = New System.Drawing.Size(194, 38)
 		Me.button4.TabIndex = 3
@@ -295,9 +309,9 @@ Partial Class Form_facturas
 		Me.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.dataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.checito})
-		Me.dataGridView1.Location = New System.Drawing.Point(3, 213)
+		Me.dataGridView1.Location = New System.Drawing.Point(3, 201)
 		Me.dataGridView1.Name = "dataGridView1"
-		Me.dataGridView1.Size = New System.Drawing.Size(979, 347)
+		Me.dataGridView1.Size = New System.Drawing.Size(979, 359)
 		Me.dataGridView1.TabIndex = 3
 		'
 		'checito
@@ -335,7 +349,7 @@ Partial Class Form_facturas
 		Me.panel1.BackColor = System.Drawing.SystemColors.ControlDark
 		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel1.Controls.Add(Me.button2)
-		Me.panel1.Location = New System.Drawing.Point(12, 625)
+		Me.panel1.Location = New System.Drawing.Point(12, 659)
 		Me.panel1.Name = "panel1"
 		Me.panel1.Size = New System.Drawing.Size(987, 53)
 		Me.panel1.TabIndex = 6
@@ -352,11 +366,71 @@ Partial Class Form_facturas
 		Me.button2.UseVisualStyleBackColor = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
+		'label10
+		'
+		Me.label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label10.Location = New System.Drawing.Point(29, 565)
+		Me.label10.Name = "label10"
+		Me.label10.Size = New System.Drawing.Size(81, 29)
+		Me.label10.TabIndex = 19
+		Me.label10.Text = "IVA 10%:"
+		Me.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'tx_iva_10
+		'
+		Me.tx_iva_10.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_iva_10.Location = New System.Drawing.Point(116, 566)
+		Me.tx_iva_10.Multiline = true
+		Me.tx_iva_10.Name = "tx_iva_10"
+		Me.tx_iva_10.Size = New System.Drawing.Size(116, 29)
+		Me.tx_iva_10.TabIndex = 18
+		Me.tx_iva_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'label11
+		'
+		Me.label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label11.Location = New System.Drawing.Point(253, 565)
+		Me.label11.Name = "label11"
+		Me.label11.Size = New System.Drawing.Size(81, 29)
+		Me.label11.TabIndex = 21
+		Me.label11.Text = "IVA 5%:"
+		Me.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'tx_iva_5
+		'
+		Me.tx_iva_5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_iva_5.Location = New System.Drawing.Point(340, 566)
+		Me.tx_iva_5.Multiline = true
+		Me.tx_iva_5.Name = "tx_iva_5"
+		Me.tx_iva_5.Size = New System.Drawing.Size(118, 29)
+		Me.tx_iva_5.TabIndex = 20
+		Me.tx_iva_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'label12
+		'
+		Me.label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label12.Location = New System.Drawing.Point(3, 604)
+		Me.label12.Name = "label12"
+		Me.label12.Size = New System.Drawing.Size(107, 29)
+		Me.label12.TabIndex = 23
+		Me.label12.Text = "TOTAL IVA:"
+		Me.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'tx_total_iva
+		'
+		Me.tx_total_iva.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_total_iva.Location = New System.Drawing.Point(116, 605)
+		Me.tx_total_iva.Multiline = true
+		Me.tx_total_iva.Name = "tx_total_iva"
+		Me.tx_total_iva.Size = New System.Drawing.Size(116, 29)
+		Me.tx_total_iva.TabIndex = 22
+		Me.tx_total_iva.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
 		'Form_facturas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1008, 690)
+		Me.ClientSize = New System.Drawing.Size(1008, 724)
 		Me.Controls.Add(Me.panel2)
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "Form_facturas"
@@ -370,6 +444,12 @@ Partial Class Form_facturas
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private tx_iva_10 As System.Windows.Forms.TextBox
+	Private label10 As System.Windows.Forms.Label
+	Private tx_iva_5 As System.Windows.Forms.TextBox
+	Private label11 As System.Windows.Forms.Label
+	Private tx_total_iva As System.Windows.Forms.TextBox
+	Private label12 As System.Windows.Forms.Label
 	Private button6 As System.Windows.Forms.Button
 	Private button1 As System.Windows.Forms.Button
 	Private label9 As System.Windows.Forms.Label

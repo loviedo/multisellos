@@ -99,7 +99,6 @@ Partial Class form_busca_prod
 		Me.label2.TabIndex = 20
 		Me.label2.Text = "CANTIDAD:"
 		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		AddHandler Me.label2.Click, AddressOf Me.Label2Click
 		'
 		'tx_canti
 		'
@@ -108,7 +107,6 @@ Partial Class form_busca_prod
 		Me.tx_canti.Name = "tx_canti"
 		Me.tx_canti.Size = New System.Drawing.Size(81, 24)
 		Me.tx_canti.TabIndex = 19
-		AddHandler Me.tx_canti.TextChanged, AddressOf Me.Tx_cantiTextChanged
 		'
 		'label4
 		'
