@@ -481,18 +481,6 @@ Public Partial Class Form_facturas
 		
 	End Sub
 
-
-    Private Sub clean_obj(ByVal obj As Object)
-	    Try
-	        System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
-	        obj = Nothing
-	    Catch ex As Exception
-	        obj = Nothing
-	    Finally
-	        GC.Collect()
-	    End Try
-    End Sub
-	
 	'sacado de https://www.lawebdelprogramador.com/foros/Visual-Basic.NET/839884-Numeros-a-letras-una-forma-facil.html
     Public Function letras(ByVal nCifra As Object) As String
         ' Defino variables
