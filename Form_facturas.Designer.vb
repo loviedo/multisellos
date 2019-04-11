@@ -34,6 +34,7 @@ Partial Class Form_facturas
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.tx_id_prod = New System.Windows.Forms.TextBox()
 		Me.label14 = New System.Windows.Forms.Label()
 		Me.dtp1 = New System.Windows.Forms.DateTimePicker()
 		Me.label13 = New System.Windows.Forms.Label()
@@ -78,6 +79,7 @@ Partial Class Form_facturas
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.tx_id_prod)
 		Me.panel2.Controls.Add(Me.label14)
 		Me.panel2.Controls.Add(Me.dtp1)
 		Me.panel2.Controls.Add(Me.label13)
@@ -108,6 +110,17 @@ Partial Class Form_facturas
 		Me.panel2.Name = "panel2"
 		Me.panel2.Size = New System.Drawing.Size(987, 641)
 		Me.panel2.TabIndex = 7
+		'
+		'tx_id_prod
+		'
+		Me.tx_id_prod.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_id_prod.Location = New System.Drawing.Point(672, 192)
+		Me.tx_id_prod.Multiline = true
+		Me.tx_id_prod.Name = "tx_id_prod"
+		Me.tx_id_prod.Size = New System.Drawing.Size(148, 26)
+		Me.tx_id_prod.TabIndex = 28
+		Me.tx_id_prod.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.tx_id_prod.Visible = false
 		'
 		'label14
 		'
@@ -490,6 +503,7 @@ Partial Class Form_facturas
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private tx_id_prod As System.Windows.Forms.TextBox
 	Private label14 As System.Windows.Forms.Label
 	Private dtp1 As System.Windows.Forms.DateTimePicker
 	Private tx_monto_total As System.Windows.Forms.TextBox

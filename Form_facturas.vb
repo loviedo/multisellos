@@ -77,7 +77,6 @@ Public Partial Class Form_facturas
 			    Else
 			    	Messagebox.Show("Error al insertar.")
 			    End If
-			    
 			Catch ex As Exception
 				MessageBox.Show(ex.Message.ToString)
 			Finally
@@ -86,15 +85,36 @@ Public Partial Class Form_facturas
 			End Try
 			
 			'******************************************************************************INSERTAMOS DATOS DE PRODUCTOS DE FACTURA
+			Dim cli_ins2 As New SqlCommand("INSERT INTO fact_productos ([fecha],[nro_factura], [cod_producto], [cant], [precio])" &
+				" VALUES(@fecha, @nro_factura, @cod_producto, @cant, @precio)", conn)
+			
 			'recorremos el DGV e insertamos los valores
 			For Each dgvr As DataGridViewRow In DataGridView1.Rows
-				monto = monto + Convert.ToInt32(dgvr.Cells("PRECIO TOTAL").Value.ToString)'total monto sin iva
-				monto_iva_10 = monto_iva_10 + Convert.ToInt32(dgvr.Cells("IVA 10%").Value.ToString)'total 10%
-				monto_iva_5 = monto_iva_5 + Convert.ToInt32(dgvr.Cells("IVA 5%").Value.ToString)'total 5%
-				monto_total = monto_total + Convert.ToInt32(dgvr.Cells("MONTO TOTAL").Value.ToString)'monto total
+				cli_ins2.Parameters.Add(New SqlParameter With {.ParameterName = "@fecha", .SqlDbType = SqlDbType.Date, .Value = fec_actual})
+				cli_ins2.Parameters.Add(New SqlParameter With {.ParameterName = "@nro_factura", .SqlDbType = SqlDbType.NVarChar, .Value = tx_factu_num.Text})
+				cli_ins2.Parameters.Add(New SqlParameter With {.ParameterName = "@cod_producto", .SqlDbType = SqlDbType.NVarChar, .Value = dgvr.Cells("CODIGO").Value})
+				cli_ins2.Parameters.Add(New SqlParameter With {.ParameterName = "@cant", .SqlDbType = SqlDbType.Int, .Value = Convert.ToInt32(dgvr.Cells("CANTIDAD").Value)})
+				cli_ins2.Parameters.Add(New SqlParameter With {.ParameterName = "@precio", .SqlDbType = SqlDbType.Int, .Value = Convert.ToInt32(dgvr.Cells("PRECIO").Value)})
 				
-				cli_ins
-				
+				Try
+					conn.Open()
+				    If cli_ins2.ExecuteNonQuery() Then
+				    Else
+				    	Messagebox.Show("Error al insertar.")
+				    End If
+				Catch ex As Exception
+					MessageBox.Show(ex.Message.ToString)
+				Finally
+					conn.Close()
+					cli_ins2.Parameters.RemoveAt("@fecha")
+					cli_ins2.Parameters.RemoveAt("@nro_factura")
+					cli_ins2.Parameters.RemoveAt("@cod_producto")
+					cli_ins2.Parameters.RemoveAt("@cant")
+					cli_ins2.Parameters.RemoveAt("@precio")
+					cli_ins2.Dispose()
+
+				End Try
+				'fin ciclo
 			Next
 			
 			'IMPRIMIMOS
@@ -190,6 +210,8 @@ Public Partial Class Form_facturas
 				iva_5 = total*0.05
 			End If
 			
+			tx_id_prod.Text = prod.id_prod
+			
 			'CALCULAMOS EL MONTO TOTAL 
 			monto_total = total + iva_10 + iva_5
 			
@@ -198,7 +220,7 @@ Public Partial Class Form_facturas
 			DataGridView1.Refresh
 			
 			
-			'RECORREMOS el dgv para sumar los totales de IVA y MONTO FINAL
+			'RECORREMOS el dgv para ACTUALIZAR los totales de IVA y MONTO FINAL
 			monto = 0
 			iva_10 = 0
 			iva_5 = 0

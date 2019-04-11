@@ -15,6 +15,7 @@ Public Partial Class form_busca_prod
 	
 	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
 	Public tipo_iva As Integer
+	Public id_prod As Integer
 	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
@@ -103,6 +104,7 @@ Public Partial Class form_busca_prod
 		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString'codigo
 		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString'descripcion
 		tipo_iva = DataGridView1.Item(6, i).Value'precio //cargamos el tipo_iva
+		id_prod = DataGridView1.Item(0, i).Value'id producto para guardar en los productos de facturas
 		
 		'cargamos en el comobobox1 los precios del producto seleccionado
 		comboBox1.Items.Clear
