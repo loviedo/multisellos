@@ -34,15 +34,22 @@ Partial Class form_recibos
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel1 = New System.Windows.Forms.Panel()
+		Me.button4 = New System.Windows.Forms.Button()
 		Me.button2 = New System.Windows.Forms.Button()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.tx_id_factu = New System.Windows.Forms.TextBox()
+		Me.label14 = New System.Windows.Forms.Label()
+		Me.dtp1 = New System.Windows.Forms.DateTimePicker()
+		Me.tx_id_cliente = New System.Windows.Forms.TextBox()
+		Me.label7 = New System.Windows.Forms.Label()
+		Me.tx_monto = New System.Windows.Forms.TextBox()
 		Me.label6 = New System.Windows.Forms.Label()
-		Me.textBox2 = New System.Windows.Forms.TextBox()
+		Me.tx_concepto = New System.Windows.Forms.TextBox()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.label1 = New System.Windows.Forms.Label()
 		Me.tx_factu = New System.Windows.Forms.TextBox()
 		Me.panel4 = New System.Windows.Forms.Panel()
-		Me.textBox1 = New System.Windows.Forms.TextBox()
+		Me.tx_nro_recibo = New System.Windows.Forms.TextBox()
 		Me.label5 = New System.Windows.Forms.Label()
 		Me.label4 = New System.Windows.Forms.Label()
 		Me.label3 = New System.Windows.Forms.Label()
@@ -51,7 +58,6 @@ Partial Class form_recibos
 		Me.tx_ruc_cliente = New System.Windows.Forms.TextBox()
 		Me.tx_nom_cliente = New System.Windows.Forms.TextBox()
 		Me.button3 = New System.Windows.Forms.Button()
-		Me.button4 = New System.Windows.Forms.Button()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		Me.panel4.SuspendLayout
@@ -61,17 +67,30 @@ Partial Class form_recibos
 		'
 		Me.panel1.BackColor = System.Drawing.SystemColors.ControlDark
 		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel1.Controls.Add(Me.button4)
 		Me.panel1.Controls.Add(Me.button2)
-		Me.panel1.Location = New System.Drawing.Point(12, 454)
+		Me.panel1.Location = New System.Drawing.Point(12, 411)
 		Me.panel1.Name = "panel1"
 		Me.panel1.Size = New System.Drawing.Size(974, 53)
 		Me.panel1.TabIndex = 7
+		'
+		'button4
+		'
+		Me.button4.BackColor = System.Drawing.SystemColors.ControlLightLight
+		Me.button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button4.Location = New System.Drawing.Point(775, 2)
+		Me.button4.Name = "button4"
+		Me.button4.Size = New System.Drawing.Size(194, 46)
+		Me.button4.TabIndex = 9
+		Me.button4.Text = "IMPRIMIR"
+		Me.button4.UseVisualStyleBackColor = false
+		AddHandler Me.button4.Click, AddressOf Me.Button4Click
 		'
 		'button2
 		'
 		Me.button2.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button2.Location = New System.Drawing.Point(808, 3)
+		Me.button2.Location = New System.Drawing.Point(21, 4)
 		Me.button2.Name = "button2"
 		Me.button2.Size = New System.Drawing.Size(161, 44)
 		Me.button2.TabIndex = 2
@@ -82,8 +101,14 @@ Partial Class form_recibos
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.tx_id_factu)
+		Me.panel2.Controls.Add(Me.label14)
+		Me.panel2.Controls.Add(Me.dtp1)
+		Me.panel2.Controls.Add(Me.tx_id_cliente)
+		Me.panel2.Controls.Add(Me.label7)
+		Me.panel2.Controls.Add(Me.tx_monto)
 		Me.panel2.Controls.Add(Me.label6)
-		Me.panel2.Controls.Add(Me.textBox2)
+		Me.panel2.Controls.Add(Me.tx_concepto)
 		Me.panel2.Controls.Add(Me.button1)
 		Me.panel2.Controls.Add(Me.label1)
 		Me.panel2.Controls.Add(Me.tx_factu)
@@ -97,32 +122,86 @@ Partial Class form_recibos
 		Me.panel2.Controls.Add(Me.button3)
 		Me.panel2.Location = New System.Drawing.Point(12, 12)
 		Me.panel2.Name = "panel2"
-		Me.panel2.Size = New System.Drawing.Size(974, 361)
+		Me.panel2.Size = New System.Drawing.Size(974, 393)
 		Me.panel2.TabIndex = 8
+		'
+		'tx_id_factu
+		'
+		Me.tx_id_factu.Location = New System.Drawing.Point(843, 237)
+		Me.tx_id_factu.Name = "tx_id_factu"
+		Me.tx_id_factu.Size = New System.Drawing.Size(100, 20)
+		Me.tx_id_factu.TabIndex = 30
+		Me.tx_id_factu.Visible = false
+		'
+		'label14
+		'
+		Me.label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label14.Location = New System.Drawing.Point(15, 18)
+		Me.label14.Name = "label14"
+		Me.label14.Size = New System.Drawing.Size(121, 29)
+		Me.label14.TabIndex = 29
+		Me.label14.Text = "FECHA:"
+		Me.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'dtp1
+		'
+		Me.dtp1.Location = New System.Drawing.Point(140, 23)
+		Me.dtp1.Name = "dtp1"
+		Me.dtp1.Size = New System.Drawing.Size(200, 20)
+		Me.dtp1.TabIndex = 28
+		Me.dtp1.Value = New Date(2019, 4, 10, 19, 48, 34, 0)
+		'
+		'tx_id_cliente
+		'
+		Me.tx_id_cliente.Location = New System.Drawing.Point(843, 202)
+		Me.tx_id_cliente.Name = "tx_id_cliente"
+		Me.tx_id_cliente.Size = New System.Drawing.Size(100, 20)
+		Me.tx_id_cliente.TabIndex = 22
+		Me.tx_id_cliente.Visible = false
+		'
+		'label7
+		'
+		Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label7.Location = New System.Drawing.Point(15, 237)
+		Me.label7.Name = "label7"
+		Me.label7.Size = New System.Drawing.Size(107, 29)
+		Me.label7.TabIndex = 21
+		Me.label7.Text = "MONTO:"
+		Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'tx_monto
+		'
+		Me.tx_monto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_monto.Location = New System.Drawing.Point(140, 237)
+		Me.tx_monto.Multiline = true
+		Me.tx_monto.Name = "tx_monto"
+		Me.tx_monto.Size = New System.Drawing.Size(321, 29)
+		Me.tx_monto.TabIndex = 20
+		Me.tx_monto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'label6
 		'
 		Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label6.Location = New System.Drawing.Point(21, 223)
+		Me.label6.Location = New System.Drawing.Point(7, 277)
 		Me.label6.Name = "label6"
 		Me.label6.Size = New System.Drawing.Size(147, 29)
 		Me.label6.TabIndex = 19
 		Me.label6.Text = "CONCEPTO:"
 		Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'textBox2
+		'tx_concepto
 		'
-		Me.textBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox2.Location = New System.Drawing.Point(21, 255)
-		Me.textBox2.Multiline = true
-		Me.textBox2.Name = "textBox2"
-		Me.textBox2.Size = New System.Drawing.Size(948, 65)
-		Me.textBox2.TabIndex = 18
-		Me.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.tx_concepto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_concepto.Location = New System.Drawing.Point(7, 306)
+		Me.tx_concepto.Multiline = true
+		Me.tx_concepto.Name = "tx_concepto"
+		Me.tx_concepto.Size = New System.Drawing.Size(948, 72)
+		Me.tx_concepto.TabIndex = 18
+		Me.tx_concepto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'button1
 		'
-		Me.button1.Location = New System.Drawing.Point(473, 145)
+		Me.button1.Location = New System.Drawing.Point(467, 197)
 		Me.button1.Name = "button1"
 		Me.button1.Size = New System.Drawing.Size(127, 29)
 		Me.button1.TabIndex = 17
@@ -133,9 +212,9 @@ Partial Class form_recibos
 		'label1
 		'
 		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label1.Location = New System.Drawing.Point(7, 145)
+		Me.label1.Location = New System.Drawing.Point(15, 197)
 		Me.label1.Name = "label1"
-		Me.label1.Size = New System.Drawing.Size(121, 29)
+		Me.label1.Size = New System.Drawing.Size(107, 29)
 		Me.label1.TabIndex = 16
 		Me.label1.Text = "Fact Nro:"
 		Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -143,7 +222,7 @@ Partial Class form_recibos
 		'tx_factu
 		'
 		Me.tx_factu.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_factu.Location = New System.Drawing.Point(146, 145)
+		Me.tx_factu.Location = New System.Drawing.Point(140, 197)
 		Me.tx_factu.Multiline = true
 		Me.tx_factu.Name = "tx_factu"
 		Me.tx_factu.Size = New System.Drawing.Size(321, 29)
@@ -153,22 +232,22 @@ Partial Class form_recibos
 		'panel4
 		'
 		Me.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.panel4.Controls.Add(Me.textBox1)
+		Me.panel4.Controls.Add(Me.tx_nro_recibo)
 		Me.panel4.Controls.Add(Me.label5)
-		Me.panel4.Location = New System.Drawing.Point(617, 22)
+		Me.panel4.Location = New System.Drawing.Point(611, 65)
 		Me.panel4.Name = "panel4"
 		Me.panel4.Size = New System.Drawing.Size(352, 100)
 		Me.panel4.TabIndex = 10
 		'
-		'textBox1
+		'tx_nro_recibo
 		'
-		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(186, 13)
-		Me.textBox1.Name = "textBox1"
-		Me.textBox1.ShortcutsEnabled = false
-		Me.textBox1.Size = New System.Drawing.Size(145, 26)
-		Me.textBox1.TabIndex = 8
-		Me.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.tx_nro_recibo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_nro_recibo.Location = New System.Drawing.Point(186, 13)
+		Me.tx_nro_recibo.Name = "tx_nro_recibo"
+		Me.tx_nro_recibo.ShortcutsEnabled = false
+		Me.tx_nro_recibo.Size = New System.Drawing.Size(145, 26)
+		Me.tx_nro_recibo.TabIndex = 8
+		Me.tx_nro_recibo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'label5
 		'
@@ -183,9 +262,9 @@ Partial Class form_recibos
 		'label4
 		'
 		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(55, 92)
+		Me.label4.Location = New System.Drawing.Point(59, 135)
 		Me.label4.Name = "label4"
-		Me.label4.Size = New System.Drawing.Size(73, 29)
+		Me.label4.Size = New System.Drawing.Size(63, 29)
 		Me.label4.TabIndex = 14
 		Me.label4.Text = "TEL:"
 		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -193,9 +272,9 @@ Partial Class form_recibos
 		'label3
 		'
 		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(48, 57)
+		Me.label3.Location = New System.Drawing.Point(51, 100)
 		Me.label3.Name = "label3"
-		Me.label3.Size = New System.Drawing.Size(80, 29)
+		Me.label3.Size = New System.Drawing.Size(71, 29)
 		Me.label3.TabIndex = 13
 		Me.label3.Text = "RUC:"
 		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -203,9 +282,9 @@ Partial Class form_recibos
 		'label2
 		'
 		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label2.Location = New System.Drawing.Point(7, 22)
+		Me.label2.Location = New System.Drawing.Point(7, 65)
 		Me.label2.Name = "label2"
-		Me.label2.Size = New System.Drawing.Size(121, 29)
+		Me.label2.Size = New System.Drawing.Size(115, 29)
 		Me.label2.TabIndex = 12
 		Me.label2.Text = "CLIENTE:"
 		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -213,7 +292,7 @@ Partial Class form_recibos
 		'tx_tel_cliente
 		'
 		Me.tx_tel_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_tel_cliente.Location = New System.Drawing.Point(146, 92)
+		Me.tx_tel_cliente.Location = New System.Drawing.Point(140, 135)
 		Me.tx_tel_cliente.Multiline = true
 		Me.tx_tel_cliente.Name = "tx_tel_cliente"
 		Me.tx_tel_cliente.Size = New System.Drawing.Size(321, 29)
@@ -223,7 +302,7 @@ Partial Class form_recibos
 		'tx_ruc_cliente
 		'
 		Me.tx_ruc_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_ruc_cliente.Location = New System.Drawing.Point(146, 57)
+		Me.tx_ruc_cliente.Location = New System.Drawing.Point(140, 100)
 		Me.tx_ruc_cliente.Multiline = true
 		Me.tx_ruc_cliente.Name = "tx_ruc_cliente"
 		Me.tx_ruc_cliente.Size = New System.Drawing.Size(321, 29)
@@ -233,7 +312,7 @@ Partial Class form_recibos
 		'tx_nom_cliente
 		'
 		Me.tx_nom_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_nom_cliente.Location = New System.Drawing.Point(146, 22)
+		Me.tx_nom_cliente.Location = New System.Drawing.Point(140, 65)
 		Me.tx_nom_cliente.Multiline = true
 		Me.tx_nom_cliente.Name = "tx_nom_cliente"
 		Me.tx_nom_cliente.Size = New System.Drawing.Size(321, 29)
@@ -245,7 +324,7 @@ Partial Class form_recibos
 		Me.button3.BackColor = System.Drawing.SystemColors.ScrollBar
 		Me.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
 		Me.button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button3.Location = New System.Drawing.Point(473, 20)
+		Me.button3.Location = New System.Drawing.Point(467, 63)
 		Me.button3.Name = "button3"
 		Me.button3.Size = New System.Drawing.Size(127, 101)
 		Me.button3.TabIndex = 3
@@ -253,24 +332,11 @@ Partial Class form_recibos
 		Me.button3.UseVisualStyleBackColor = false
 		AddHandler Me.button3.Click, AddressOf Me.Button3Click
 		'
-		'button4
-		'
-		Me.button4.BackColor = System.Drawing.SystemColors.ControlLightLight
-		Me.button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button4.Location = New System.Drawing.Point(788, 390)
-		Me.button4.Name = "button4"
-		Me.button4.Size = New System.Drawing.Size(194, 46)
-		Me.button4.TabIndex = 9
-		Me.button4.Text = "IMPRIMIR"
-		Me.button4.UseVisualStyleBackColor = false
-		AddHandler Me.button4.Click, AddressOf Me.Button4Click
-		'
 		'form_recibos
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(998, 520)
-		Me.Controls.Add(Me.button4)
+		Me.ClientSize = New System.Drawing.Size(998, 477)
 		Me.Controls.Add(Me.panel2)
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "form_recibos"
@@ -283,12 +349,18 @@ Partial Class form_recibos
 		Me.panel4.PerformLayout
 		Me.ResumeLayout(false)
 	End Sub
+	Private tx_id_factu As System.Windows.Forms.TextBox
+	Private dtp1 As System.Windows.Forms.DateTimePicker
+	Private label14 As System.Windows.Forms.Label
+	Private tx_id_cliente As System.Windows.Forms.TextBox
+	Private tx_monto As System.Windows.Forms.TextBox
+	Private label7 As System.Windows.Forms.Label
 	Private button4 As System.Windows.Forms.Button
 	Private button1 As System.Windows.Forms.Button
-	Private textBox2 As System.Windows.Forms.TextBox
+	Private tx_concepto As System.Windows.Forms.TextBox
 	Private label6 As System.Windows.Forms.Label
 	Private label5 As System.Windows.Forms.Label
-	Private textBox1 As System.Windows.Forms.TextBox
+	Private tx_nro_recibo As System.Windows.Forms.TextBox
 	Private panel4 As System.Windows.Forms.Panel
 	Private tx_factu As System.Windows.Forms.TextBox
 	Private label1 As System.Windows.Forms.Label

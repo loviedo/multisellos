@@ -48,12 +48,16 @@ Partial Class MainForm
 		Me.administrarToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.proveedoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.administrarToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+		Me.listadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.cajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.comprasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.administrarToolStripMenuItem3 = New System.Windows.Forms.ToolStripMenuItem()
 		Me.menuStrip1.SuspendLayout
 		Me.SuspendLayout
 		'
 		'menuStrip1
 		'
-		Me.menuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.adminToolStripMenuItem, Me.faToolStripMenuItem, Me.clientesToolStripMenuItem, Me.productosToolStripMenuItem, Me.proveedoresToolStripMenuItem})
+		Me.menuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.adminToolStripMenuItem, Me.faToolStripMenuItem, Me.clientesToolStripMenuItem, Me.productosToolStripMenuItem, Me.proveedoresToolStripMenuItem, Me.comprasToolStripMenuItem, Me.listadosToolStripMenuItem})
 		Me.menuStrip1.Location = New System.Drawing.Point(0, 0)
 		Me.menuStrip1.Name = "menuStrip1"
 		Me.menuStrip1.Size = New System.Drawing.Size(1372, 24)
@@ -97,21 +101,21 @@ Partial Class MainForm
 		'emitirFacturaToolStripMenuItem
 		'
 		Me.emitirFacturaToolStripMenuItem.Name = "emitirFacturaToolStripMenuItem"
-		Me.emitirFacturaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.emitirFacturaToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
 		Me.emitirFacturaToolStripMenuItem.Text = "Facturas"
 		AddHandler Me.emitirFacturaToolStripMenuItem.Click, AddressOf Me.EmitirFacturaToolStripMenuItemClick
 		'
 		'emitirTicketToolStripMenuItem
 		'
 		Me.emitirTicketToolStripMenuItem.Name = "emitirTicketToolStripMenuItem"
-		Me.emitirTicketToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.emitirTicketToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
 		Me.emitirTicketToolStripMenuItem.Text = "Tickets"
 		AddHandler Me.emitirTicketToolStripMenuItem.Click, AddressOf Me.EmitirTicketToolStripMenuItemClick
 		'
 		'recibosToolStripMenuItem
 		'
 		Me.recibosToolStripMenuItem.Name = "recibosToolStripMenuItem"
-		Me.recibosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.recibosToolStripMenuItem.Size = New System.Drawing.Size(118, 22)
 		Me.recibosToolStripMenuItem.Text = "Recibos"
 		AddHandler Me.recibosToolStripMenuItem.Click, AddressOf Me.RecibosToolStripMenuItemClick
 		'
@@ -125,7 +129,7 @@ Partial Class MainForm
 		'administrarToolStripMenuItem
 		'
 		Me.administrarToolStripMenuItem.Name = "administrarToolStripMenuItem"
-		Me.administrarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.administrarToolStripMenuItem.Size = New System.Drawing.Size(145, 22)
 		Me.administrarToolStripMenuItem.Text = "Administrar..."
 		AddHandler Me.administrarToolStripMenuItem.Click, AddressOf Me.AdministrarToolStripMenuItemClick
 		'
@@ -139,7 +143,7 @@ Partial Class MainForm
 		'administrarToolStripMenuItem1
 		'
 		Me.administrarToolStripMenuItem1.Name = "administrarToolStripMenuItem1"
-		Me.administrarToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+		Me.administrarToolStripMenuItem1.Size = New System.Drawing.Size(145, 22)
 		Me.administrarToolStripMenuItem1.Text = "Administrar..."
 		AddHandler Me.administrarToolStripMenuItem1.Click, AddressOf Me.AdministrarToolStripMenuItem1Click
 		'
@@ -153,9 +157,37 @@ Partial Class MainForm
 		'administrarToolStripMenuItem2
 		'
 		Me.administrarToolStripMenuItem2.Name = "administrarToolStripMenuItem2"
-		Me.administrarToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
+		Me.administrarToolStripMenuItem2.Size = New System.Drawing.Size(145, 22)
 		Me.administrarToolStripMenuItem2.Text = "Administrar..."
 		AddHandler Me.administrarToolStripMenuItem2.Click, AddressOf Me.AdministrarToolStripMenuItem2Click
+		'
+		'listadosToolStripMenuItem
+		'
+		Me.listadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cajaToolStripMenuItem})
+		Me.listadosToolStripMenuItem.Name = "listadosToolStripMenuItem"
+		Me.listadosToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+		Me.listadosToolStripMenuItem.Text = "Listados"
+		'
+		'cajaToolStripMenuItem
+		'
+		Me.cajaToolStripMenuItem.Name = "cajaToolStripMenuItem"
+		Me.cajaToolStripMenuItem.Size = New System.Drawing.Size(97, 22)
+		Me.cajaToolStripMenuItem.Text = "Caja"
+		AddHandler Me.cajaToolStripMenuItem.Click, AddressOf Me.CajaToolStripMenuItemClick
+		'
+		'comprasToolStripMenuItem
+		'
+		Me.comprasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.administrarToolStripMenuItem3})
+		Me.comprasToolStripMenuItem.Name = "comprasToolStripMenuItem"
+		Me.comprasToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
+		Me.comprasToolStripMenuItem.Text = "Compras"
+		'
+		'administrarToolStripMenuItem3
+		'
+		Me.administrarToolStripMenuItem3.Name = "administrarToolStripMenuItem3"
+		Me.administrarToolStripMenuItem3.Size = New System.Drawing.Size(152, 22)
+		Me.administrarToolStripMenuItem3.Text = "Administrar..."
+		AddHandler Me.administrarToolStripMenuItem3.Click, AddressOf Me.AdministrarToolStripMenuItem3Click
 		'
 		'MainForm
 		'
@@ -172,6 +204,10 @@ Partial Class MainForm
 		Me.ResumeLayout(false)
 		Me.PerformLayout
 	End Sub
+	Private administrarToolStripMenuItem3 As System.Windows.Forms.ToolStripMenuItem
+	Private comprasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Private cajaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+	Private listadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Private recibosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Private administrarToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
 	Private proveedoresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

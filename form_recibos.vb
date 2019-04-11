@@ -43,6 +43,7 @@ Public Partial Class form_recibos
 			tx_nom_cliente.Text = cli.textBox1.Text 'cliente nombre
 			tx_ruc_cliente.text = cli.textBox2.Text 'cliente RUC
 			tx_tel_cliente.Text = cli.textBox3.Text 'cliente tel	
+			tx_id_cliente.Text = cli.id_cli'traemos el id del cliente del formulario
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
@@ -52,6 +53,39 @@ Public Partial Class form_recibos
 	Sub Button4Click(sender As Object, e As EventArgs)
 		'guardamos e imprimimos
 		
+		' vemos la fecha a cargar
+		Dim fec_actual As Date = dtp1.Value
+		
+		
+		'GUARDAMOS
+		Dim conn = New System.Data.SqlClient.SqlConnection(con_str)
+		
+		'******************************************************************************INSERTAMOS DATOS DE FACTURA
+		Dim cli_ins As New SqlCommand("INSERT INTO recibos ([fecha],[nro_recibo], [id_cliente], [id_factura], [monto], [concepto])" &
+			" VALUES(@fecha,@nro_recibo, @id_cliente, @id_factura, @monto, @concepto)", conn)
+		
+		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@fecha", .SqlDbType = SqlDbType.Date, .Value = fec_actual})
+		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@nro_recibo", .SqlDbType = SqlDbType.NVarChar, .Value = tx_nro_recibo.Text})
+		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@id_cliente", .SqlDbType = SqlDbType.NVarChar, .Value = tx_id_cliente.Text})
+		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@id_factura", .SqlDbType = SqlDbType.NVarChar, .Value = tx_id_factu.Text})'nro de factura
+		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@monto", .SqlDbType = SqlDbType.Int, .Value = Convert.ToInt32(tx_monto.Text)})'nro de remision
+		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@concepto", .SqlDbType = SqlDbType.NVarChar, .Value = tx_concepto.Text})
+		
+		
+		Try
+			conn.Open()
+		    If cli_ins.ExecuteNonQuery() Then
+		    	Messagebox.Show("Insertado Exitosamente.")
+		    Else
+		    	Messagebox.Show("Error al insertar.")
+		    End If
+		Catch ex As Exception
+			MessageBox.Show(ex.Message.ToString)
+		Finally
+			conn.Close()
+			cli_ins.Dispose()
+		End Try
+		
 	End Sub
 	
 	Sub Button1Click(sender As Object, e As EventArgs)
@@ -59,7 +93,8 @@ Public Partial Class form_recibos
 		Dim fact As New form_busca_fact()
 		If fact.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
 			' traemos el contenido
-			tx_factu.Text = "asd"
+			tx_factu.Text = fact.nro_factu
+			tx_id_factu.Text = fact.id_factu
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If

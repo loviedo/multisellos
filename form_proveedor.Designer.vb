@@ -84,6 +84,7 @@ Partial Class form_proveedor
 		Me.textBox6.Name = "textBox6"
 		Me.textBox6.Size = New System.Drawing.Size(178, 24)
 		Me.textBox6.TabIndex = 15
+		Me.textBox6.Visible = false
 		'
 		'label6
 		'
@@ -240,7 +241,6 @@ Partial Class form_proveedor
 		Me.button2.TabIndex = 0
 		Me.button2.Text = "Cargar datos"
 		Me.button2.UseVisualStyleBackColor = true
-		Me.button2.Visible = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
 		'form_proveedor

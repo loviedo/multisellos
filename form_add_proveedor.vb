@@ -65,4 +65,8 @@ Public Partial Class form_add_proveedor
 			MessageBox.Show("DEBE COMPLETAR LOS CAMPOS OBLIGATORIOS!")
 		End If
 	End Sub
+	
+	Sub Form_add_proveedorLoad(sender As Object, e As EventArgs)
+		Me.CenterToScreen()
+	End Sub
 End Class

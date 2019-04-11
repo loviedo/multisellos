@@ -74,7 +74,7 @@ Partial Class form_add_proveedor
 		'label7
 		'
 		Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label7.Location = New System.Drawing.Point(68, 199)
+		Me.label7.Location = New System.Drawing.Point(55, 222)
 		Me.label7.Name = "label7"
 		Me.label7.Size = New System.Drawing.Size(143, 29)
 		Me.label7.TabIndex = 23
@@ -84,7 +84,7 @@ Partial Class form_add_proveedor
 		'tx_dir_c
 		'
 		Me.tx_dir_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_dir_c.Location = New System.Drawing.Point(223, 199)
+		Me.tx_dir_c.Location = New System.Drawing.Point(210, 222)
 		Me.tx_dir_c.Multiline = true
 		Me.tx_dir_c.Name = "tx_dir_c"
 		Me.tx_dir_c.Size = New System.Drawing.Size(360, 49)
@@ -94,7 +94,7 @@ Partial Class form_add_proveedor
 		'label6
 		'
 		Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label6.Location = New System.Drawing.Point(122, 164)
+		Me.label6.Location = New System.Drawing.Point(109, 187)
 		Me.label6.Name = "label6"
 		Me.label6.Size = New System.Drawing.Size(89, 29)
 		Me.label6.TabIndex = 19
@@ -104,7 +104,7 @@ Partial Class form_add_proveedor
 		'tx_email_c
 		'
 		Me.tx_email_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_email_c.Location = New System.Drawing.Point(223, 169)
+		Me.tx_email_c.Location = New System.Drawing.Point(210, 192)
 		Me.tx_email_c.Name = "tx_email_c"
 		Me.tx_email_c.Size = New System.Drawing.Size(360, 24)
 		Me.tx_email_c.TabIndex = 4
@@ -125,7 +125,7 @@ Partial Class form_add_proveedor
 		'label4
 		'
 		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(133, 133)
+		Me.label4.Location = New System.Drawing.Point(120, 156)
 		Me.label4.Name = "label4"
 		Me.label4.Size = New System.Drawing.Size(84, 29)
 		Me.label4.TabIndex = 15
@@ -135,7 +135,7 @@ Partial Class form_add_proveedor
 		'label3
 		'
 		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(133, 98)
+		Me.label3.Location = New System.Drawing.Point(120, 121)
 		Me.label3.Name = "label3"
 		Me.label3.Size = New System.Drawing.Size(78, 29)
 		Me.label3.TabIndex = 14
@@ -145,7 +145,7 @@ Partial Class form_add_proveedor
 		'label5
 		'
 		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(90, 63)
+		Me.label5.Location = New System.Drawing.Point(77, 86)
 		Me.label5.Name = "label5"
 		Me.label5.Size = New System.Drawing.Size(121, 29)
 		Me.label5.TabIndex = 13
@@ -155,7 +155,7 @@ Partial Class form_add_proveedor
 		'tx_tel_c
 		'
 		Me.tx_tel_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_tel_c.Location = New System.Drawing.Point(223, 137)
+		Me.tx_tel_c.Location = New System.Drawing.Point(210, 160)
 		Me.tx_tel_c.Name = "tx_tel_c"
 		Me.tx_tel_c.Size = New System.Drawing.Size(360, 24)
 		Me.tx_tel_c.TabIndex = 3
@@ -164,7 +164,7 @@ Partial Class form_add_proveedor
 		'tx_ruc_c
 		'
 		Me.tx_ruc_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_ruc_c.Location = New System.Drawing.Point(223, 103)
+		Me.tx_ruc_c.Location = New System.Drawing.Point(210, 126)
 		Me.tx_ruc_c.Name = "tx_ruc_c"
 		Me.tx_ruc_c.Size = New System.Drawing.Size(360, 24)
 		Me.tx_ruc_c.TabIndex = 2
@@ -173,7 +173,7 @@ Partial Class form_add_proveedor
 		'tx_nom_c
 		'
 		Me.tx_nom_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_nom_c.Location = New System.Drawing.Point(223, 63)
+		Me.tx_nom_c.Location = New System.Drawing.Point(210, 86)
 		Me.tx_nom_c.Name = "tx_nom_c"
 		Me.tx_nom_c.Size = New System.Drawing.Size(360, 24)
 		Me.tx_nom_c.TabIndex = 1
@@ -220,6 +220,7 @@ Partial Class form_add_proveedor
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "form_add_proveedor"
 		Me.Text = "form_add_proveedor"
+		AddHandler Load, AddressOf Me.Form_add_proveedorLoad
 		Me.panel2.ResumeLayout(false)
 		Me.panel2.PerformLayout
 		Me.panel1.ResumeLayout(false)

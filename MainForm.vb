@@ -97,4 +97,24 @@ Public Partial Class MainForm
     	End If
     	reci.Dispose()
 	End Sub
+	
+	Sub CajaToolStripMenuItemClick(sender As Object, e As EventArgs)
+		'llamamos el form de listados
+		Dim listi As New form_listados()
+		If listi.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+        	'
+    	Else
+    	End If
+    	listi.Dispose()
+	End Sub
+	
+	Sub AdministrarToolStripMenuItem3Click(sender As Object, e As EventArgs)
+		'llamamos el form de listados
+		Dim comprita As New form_compras()
+		If comprita.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+        	'
+    	Else
+    	End If
+    	comprita.Dispose()
+	End Sub
 End Class

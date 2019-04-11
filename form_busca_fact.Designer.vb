@@ -34,12 +34,12 @@ Partial Class form_busca_fact
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.tx_id_factu = New System.Windows.Forms.TextBox()
 		Me.label6 = New System.Windows.Forms.Label()
 		Me.textBox5 = New System.Windows.Forms.TextBox()
 		Me.label4 = New System.Windows.Forms.Label()
 		Me.label3 = New System.Windows.Forms.Label()
 		Me.label5 = New System.Windows.Forms.Label()
-		Me.label2 = New System.Windows.Forms.Label()
 		Me.label1 = New System.Windows.Forms.Label()
 		Me.textBox4 = New System.Windows.Forms.TextBox()
 		Me.textBox3 = New System.Windows.Forms.TextBox()
@@ -56,12 +56,12 @@ Partial Class form_busca_fact
 		'
 		'panel2
 		'
+		Me.panel2.Controls.Add(Me.tx_id_factu)
 		Me.panel2.Controls.Add(Me.label6)
 		Me.panel2.Controls.Add(Me.textBox5)
 		Me.panel2.Controls.Add(Me.label4)
 		Me.panel2.Controls.Add(Me.label3)
 		Me.panel2.Controls.Add(Me.label5)
-		Me.panel2.Controls.Add(Me.label2)
 		Me.panel2.Controls.Add(Me.label1)
 		Me.panel2.Controls.Add(Me.textBox4)
 		Me.panel2.Controls.Add(Me.textBox3)
@@ -72,6 +72,13 @@ Partial Class form_busca_fact
 		Me.panel2.Name = "panel2"
 		Me.panel2.Size = New System.Drawing.Size(762, 494)
 		Me.panel2.TabIndex = 7
+		'
+		'tx_id_factu
+		'
+		Me.tx_id_factu.Location = New System.Drawing.Point(624, 42)
+		Me.tx_id_factu.Name = "tx_id_factu"
+		Me.tx_id_factu.Size = New System.Drawing.Size(100, 20)
+		Me.tx_id_factu.TabIndex = 15
 		'
 		'label6
 		'
@@ -94,41 +101,32 @@ Partial Class form_busca_fact
 		'label4
 		'
 		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(507, 454)
+		Me.label4.Location = New System.Drawing.Point(486, 454)
 		Me.label4.Name = "label4"
-		Me.label4.Size = New System.Drawing.Size(60, 29)
+		Me.label4.Size = New System.Drawing.Size(81, 29)
 		Me.label4.TabIndex = 12
-		Me.label4.Text = "TEL:"
+		Me.label4.Text = "RUC:"
 		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
 		'label3
 		'
 		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(190, 454)
+		Me.label3.Location = New System.Drawing.Point(48, 454)
 		Me.label3.Name = "label3"
-		Me.label3.Size = New System.Drawing.Size(105, 29)
+		Me.label3.Size = New System.Drawing.Size(143, 29)
 		Me.label3.TabIndex = 11
-		Me.label3.Text = "RUC:"
+		Me.label3.Text = "CLIENTE:"
 		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
 		'
 		'label5
 		'
 		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(184, 417)
+		Me.label5.Location = New System.Drawing.Point(35, 417)
 		Me.label5.Name = "label5"
-		Me.label5.Size = New System.Drawing.Size(111, 29)
+		Me.label5.Size = New System.Drawing.Size(156, 29)
 		Me.label5.TabIndex = 10
-		Me.label5.Text = "CLIENTE:"
+		Me.label5.Text = "FACTURA No:"
 		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'label2
-		'
-		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label2.Location = New System.Drawing.Point(12, 418)
-		Me.label2.Name = "label2"
-		Me.label2.Size = New System.Drawing.Size(130, 29)
-		Me.label2.TabIndex = 9
-		Me.label2.Text = "Seleccionado: "
 		'
 		'label1
 		'
@@ -160,7 +158,7 @@ Partial Class form_busca_fact
 		'textBox2
 		'
 		Me.textBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox2.Location = New System.Drawing.Point(301, 454)
+		Me.textBox2.Location = New System.Drawing.Point(197, 454)
 		Me.textBox2.Name = "textBox2"
 		Me.textBox2.Size = New System.Drawing.Size(200, 24)
 		Me.textBox2.TabIndex = 5
@@ -181,7 +179,7 @@ Partial Class form_busca_fact
 		'textBox1
 		'
 		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(301, 418)
+		Me.textBox1.Location = New System.Drawing.Point(197, 418)
 		Me.textBox1.Name = "textBox1"
 		Me.textBox1.Size = New System.Drawing.Size(200, 24)
 		Me.textBox1.TabIndex = 1
@@ -217,7 +215,6 @@ Partial Class form_busca_fact
 		Me.button2.TabIndex = 0
 		Me.button2.Text = "Cargar datos"
 		Me.button2.UseVisualStyleBackColor = true
-		Me.button2.Visible = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
 		'form_busca_fact
@@ -236,6 +233,7 @@ Partial Class form_busca_fact
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private tx_id_factu As System.Windows.Forms.TextBox
 	Private button2 As System.Windows.Forms.Button
 	Private button3 As System.Windows.Forms.Button
 	Private panel1 As System.Windows.Forms.Panel
@@ -245,7 +243,6 @@ Partial Class form_busca_fact
 	Public textBox3 As System.Windows.Forms.TextBox
 	Private textBox4 As System.Windows.Forms.TextBox
 	Private label1 As System.Windows.Forms.Label
-	Private label2 As System.Windows.Forms.Label
 	Private label5 As System.Windows.Forms.Label
 	Private label3 As System.Windows.Forms.Label
 	Private label4 As System.Windows.Forms.Label

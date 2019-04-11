@@ -14,6 +14,10 @@ Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Partial Class form_busca_fact
 	
+	
+	Public id_factu As Integer'para pasar el id de la factura
+	Public nro_factu As String'para pasar el nro de factura
+	
 	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
@@ -58,9 +62,9 @@ Public Partial Class form_busca_fact
 		
 		'cargamos en el Datagrid
 		For Each dgvr As DataGridViewRow In DataGridView1.Rows
-			dgvr.Cells("nro_factura").ToolTipText = "Doble click para selecccionar"
-			dgvr.Cells("ruc").ToolTipText = "Doble click para selecccionar"
-			dgvr.Cells("Telefono").ToolTipText = "Doble click para selecccionar"
+			'dgvr.Cells("nro_factura").ToolTipText = "Doble click para selecccionar"
+			'dgvr.Cells("ruc").ToolTipText = "Doble click para selecccionar"
+			'dgvr.Cells("Telefono").ToolTipText = "Doble click para selecccionar"
 		Next	
 	End Sub
 	
@@ -100,13 +104,16 @@ Public Partial Class form_busca_fact
 		Dim i As Integer
 		i = DataGridView1.CurrentRow.Index
 		
+		tx_id_factu.Text = DataGridView1.Item(0, i).Value.ToString
 		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString
 		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString
-		TextBox3.Text = DataGridView1.Item(3, i).Value.ToString			
+		TextBox3.Text = DataGridView1.Item(3, i).Value.ToString
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
 		'devolvemos los datos
-		Me.DialogResult = System.Windows.Forms.DialogResult.OK			
+		nro_factu = textBox1.Text'pasamos el nro de factura
+		id_factu = Convert.ToInt32(tx_id_factu.text)'pasamos el id de factura para join
+		Me.DialogResult = System.Windows.Forms.DialogResult.OK
 	End Sub
 End Class

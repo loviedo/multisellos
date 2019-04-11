@@ -33,6 +33,7 @@ Partial Class Form_facturas
 	''' not be able to load this method if it was changed manually.
 	''' </summary>
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form_facturas))
 		Me.panel2 = New System.Windows.Forms.Panel()
 		Me.tx_id_prod = New System.Windows.Forms.TextBox()
 		Me.label14 = New System.Windows.Forms.Label()
@@ -70,6 +71,9 @@ Partial Class Form_facturas
 		Me.button4 = New System.Windows.Forms.Button()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.button2 = New System.Windows.Forms.Button()
+		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
+		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
+		Me.printPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
 		Me.panel2.SuspendLayout
 		Me.panel4.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
@@ -316,6 +320,7 @@ Partial Class Form_facturas
 		Me.label8.TabIndex = 11
 		Me.label8.Text = "label8"
 		Me.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.label8.Visible = false
 		'
 		'label7
 		'
@@ -326,6 +331,7 @@ Partial Class Form_facturas
 		Me.label7.TabIndex = 10
 		Me.label7.Text = "label7"
 		Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.label7.Visible = false
 		'
 		'label6
 		'
@@ -336,6 +342,7 @@ Partial Class Form_facturas
 		Me.label6.TabIndex = 9
 		Me.label6.Text = "NRO:"
 		Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.label6.Visible = false
 		'
 		'tx_factu_num
 		'
@@ -485,6 +492,20 @@ Partial Class Form_facturas
 		Me.button2.UseVisualStyleBackColor = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
+		'printDialog1
+		'
+		Me.printDialog1.UseEXDialog = true
+		'
+		'printPreviewDialog1
+		'
+		Me.printPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+		Me.printPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+		Me.printPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+		Me.printPreviewDialog1.Enabled = true
+		Me.printPreviewDialog1.Icon = CType(resources.GetObject("printPreviewDialog1.Icon"),System.Drawing.Icon)
+		Me.printPreviewDialog1.Name = "printPreviewDialog1"
+		Me.printPreviewDialog1.Visible = false
+		'
 		'Form_facturas
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -503,6 +524,9 @@ Partial Class Form_facturas
 		Me.panel1.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private printPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
+	Private printDialog1 As System.Windows.Forms.PrintDialog
+	Private printDocument1 As System.Drawing.Printing.PrintDocument
 	Private tx_id_prod As System.Windows.Forms.TextBox
 	Private label14 As System.Windows.Forms.Label
 	Private dtp1 As System.Windows.Forms.DateTimePicker

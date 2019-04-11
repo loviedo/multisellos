@@ -80,6 +80,10 @@
       <DependentUpon>form_cliente.vb</DependentUpon>
     </Compile>
     <Compile Include="form_cliente.vb" />
+    <Compile Include="form_compras.Designer.vb">
+      <DependentUpon>form_compras.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_compras.vb" />
     <Compile Include="form_conf.Designer.vb">
       <DependentUpon>form_conf.vb</DependentUpon>
     </Compile>
@@ -88,6 +92,10 @@
       <DependentUpon>Form_facturas.vb</DependentUpon>
     </Compile>
     <Compile Include="Form_facturas.vb" />
+    <Compile Include="form_listados.Designer.vb">
+      <DependentUpon>form_listados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_listados.vb" />
     <Compile Include="Form_productos.Designer.vb">
       <DependentUpon>Form_productos.vb</DependentUpon>
     </Compile>
@@ -131,11 +139,17 @@
     <EmbeddedResource Include="form_cliente.resx">
       <DependentUpon>form_cliente.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="form_compras.resx">
+      <DependentUpon>form_compras.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_conf.resx">
       <DependentUpon>form_conf.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_facturas.resx">
       <DependentUpon>Form_facturas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_listados.resx">
+      <DependentUpon>form_listados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_productos.resx">
       <DependentUpon>Form_productos.vb</DependentUpon>
