@@ -14,6 +14,7 @@ Imports Excel = Microsoft.Office.Interop.Excel
 Public Partial Class form_busca_prod
 	
 	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
+	Public tipo_iva As Integer
 	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
@@ -28,7 +29,7 @@ Public Partial Class form_busca_prod
 		Me.CenterToScreen()	
 		comboBox1.Text= "0"
 		
-		tx_canti.Text = 1 'cantidad del producto
+		tx_canti.Text = 1 'cantidad del producto por defecto
 		
 		'cargamos los clientes que hubieran
 		Dim con As New SqlConnection(con_str)
@@ -101,7 +102,7 @@ Public Partial Class form_busca_prod
 		
 		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString'codigo
 		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString'descripcion
-		'TextBox3.Text = DataGridView1.Item(3, i).Value.ToString'precio //debug
+		tipo_iva = DataGridView1.Item(6, i).Value'precio //cargamos el tipo_iva
 		
 		'cargamos en el comobobox1 los precios del producto seleccionado
 		comboBox1.Items.Clear

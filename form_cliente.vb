@@ -12,7 +12,7 @@ Imports System.Data.SqlClient
 
 Public Partial Class form_cliente
 	
-	
+	Public id_cli As Integer'para el id del cliente
 	Dim con_str As String
 	
 	Public Sub New()
@@ -92,6 +92,8 @@ Public Partial Class form_cliente
 		Dim i As Integer
 		i = DataGridView1.CurrentRow.Index
 		
+		
+		id_cli=DataGridView1.Item(0, i).Value'id del cliente
 		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString
 		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString
 		TextBox3.Text = DataGridView1.Item(3, i).Value.ToString

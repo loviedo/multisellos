@@ -64,10 +64,11 @@ Public Partial Class Form_productos
 	
 	Sub DataGridView1CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
 		Dim i As Integer
+		
 		i = DataGridView1.CurrentRow.Index
 		
-		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString
-		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString				
+		TextBox1.Text = DataGridView1.Item(2, i).Value.ToString
+		TextBox2.Text = DataGridView1.Item(3, i).Value.ToString				
 	End Sub
 	
 	Sub Button3Click(sender As Object, e As EventArgs)

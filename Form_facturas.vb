@@ -14,11 +14,15 @@ Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Partial Class Form_facturas
 	
-	
+	Private id_cliente As integer
 	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
 	
 	Dim tipo_factura = "CONTADO"
-
+	
+	Dim monto As Integer = 0'para el total monto sin iva
+	Dim monto_iva_10 As Integer = 0'para el total iva 10
+	Dim monto_iva_5 As Integer = 0' para el total iva 5
+	Dim monto_total As Integer = 0' monto total a facturar
 	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
@@ -34,58 +38,71 @@ Public Partial Class Form_facturas
 		'aqui guardamos los datos y luego imprimimos.
 		'MessageBox.Show(tipo_factura) 'debug
 		If tx_nom_cliente.TextLength > 0 And tx_ruc_cliente.TextLength > 0 And tx_factu_num.TextLength > 0 And dataGridView1.RowCount >0 Then
-			'GUARDAMOS
-			MessageBox.Show("cargar")
 			
+			'recorremos el DGV y sumamos los valores
+			For Each dgvr As DataGridViewRow In DataGridView1.Rows
+				monto = monto + Convert.ToInt32(dgvr.Cells("PRECIO TOTAL").Value.ToString)'total monto sin iva
+				monto_iva_10 = monto_iva_10 + Convert.ToInt32(dgvr.Cells("IVA 10%").Value.ToString)'total 10%
+				monto_iva_5 = monto_iva_5 + Convert.ToInt32(dgvr.Cells("IVA 5%").Value.ToString)'total 5%
+				monto_total = monto_total + Convert.ToInt32(dgvr.Cells("MONTO TOTAL").Value.ToString)'monto total
+			Next
+			
+			'fecha actual
+			Dim fec_actual As Date = dtp1.Value
+			
+
+		    
+			'GUARDAMOS
 			Dim conn = New System.Data.SqlClient.SqlConnection(con_str)
 			
-			'INSERTAMOS DATOS DE FACTURA
-			Dim cli_ins As New SqlCommand("INSERT INTO facturas ([nro_factura], [id_cliente], [tipo_fact], [rk_fact_prod], [monto_total], [iva_10_total], [iva_5_total], [exenta_total])" &
-				" VALUES(@nro_factura, @id_cliente, @tipo_fact, @rk_fact_prod, @monto_total, @iva_10_total, @iva_5_total, @exenta_total)", conn)
-
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@nro_factura", .SqlDbType = SqlDbType.NVarChar, .Value = tx_nom_cliente.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@id_cliente", .SqlDbType = SqlDbType.NVarChar, .Value = tx_ruc_cliente.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@tipo_fact", .SqlDbType = SqlDbType.Int, .Value = tx_precio1.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@rk_fact_prod", .SqlDbType = SqlDbType.Int, .Value = tx_precio2.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@monto_total", .SqlDbType = SqlDbType.Int, .Value = tx_precio3.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@iva_10_total", .SqlDbType = SqlDbType.Int, .Value = tx_iva_10.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@iva_5_total", .SqlDbType = SqlDbType.Int, .Value = tx_iva_5.Text})
-			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@exenta_total", .SqlDbType = SqlDbType.Int, .Value = tx_exenta.Text})
+			'******************************************************************************INSERTAMOS DATOS DE FACTURA
+			Dim cli_ins As New SqlCommand("INSERT INTO facturas ([fecha],[nro_factura], [id_cliente], [tipo_fact], [remision_nro], [monto], [total_iva_10], [total_iva_5], [monto_total])" &
+				" VALUES(@fecha,@nro_factura, @id_cliente, @tipo_fact, @remision, @monto, @iva_10_total, @iva_5_total, @monto_total)", conn)
+			
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@fecha", .SqlDbType = SqlDbType.Date, .Value = fec_actual})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@nro_factura", .SqlDbType = SqlDbType.NVarChar, .Value = tx_factu_num.Text})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@id_cliente", .SqlDbType = SqlDbType.NVarChar, .Value = id_cliente})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@tipo_fact", .SqlDbType = SqlDbType.NVarChar, .Value = tipo_factura})'var que guarda el tipo de factura
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@remision", .SqlDbType = SqlDbType.Int, .Value = Convert.ToInt32(tx_remision.Text)})'nro de remision
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@monto", .SqlDbType = SqlDbType.Int, .Value = monto})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@iva_10_total", .SqlDbType = SqlDbType.BigInt, .Value = monto_iva_10})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@iva_5_total", .SqlDbType = SqlDbType.BigInt, .Value = monto_iva_5})
+			cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@monto_total", .SqlDbType = SqlDbType.BigInt, .Value = monto_total})
 			
 			
-			If tx_cod.TextLength > 0 And tx_des.TextLength > 0 And tx_precio1.TextLength >0 Then
-				'si no esta vacio insertamos.
-				Try
-					conn.Open()
-				    
-				    If cli_ins.ExecuteNonQuery() Then
-				    	Messagebox.Show("Insertado Exitosamente.")
-				    	tx_cod.Text = ""
-				    	tx_des.Text  = ""
-				    	tx_precio1.Text = ""
-				    	tx_precio2.Text = ""
-				    	tx_precio3.Text = ""
-				    Else
-				    	Messagebox.Show("Error al insertar.")
-				    End If
-				    
-				Catch ex As Exception
-					MessageBox.Show(ex.Message.ToString)
-				Finally
-					conn.Close()
-					cli_ins.Dispose()
-				End Try
-			Else
-				MessageBox.Show("DEBE COMPLETAR LOS CAMPOS OBLIGATORIOS!")
-			End If
-
+			Try
+				conn.Open()
+			    If cli_ins.ExecuteNonQuery() Then
+			    	Messagebox.Show("Insertado Exitosamente.")
+			    Else
+			    	Messagebox.Show("Error al insertar.")
+			    End If
+			    
+			Catch ex As Exception
+				MessageBox.Show(ex.Message.ToString)
+			Finally
+				conn.Close()
+				cli_ins.Dispose()
+			End Try
+			
+			'******************************************************************************INSERTAMOS DATOS DE PRODUCTOS DE FACTURA
+			'recorremos el DGV e insertamos los valores
+			For Each dgvr As DataGridViewRow In DataGridView1.Rows
+				monto = monto + Convert.ToInt32(dgvr.Cells("PRECIO TOTAL").Value.ToString)'total monto sin iva
+				monto_iva_10 = monto_iva_10 + Convert.ToInt32(dgvr.Cells("IVA 10%").Value.ToString)'total 10%
+				monto_iva_5 = monto_iva_5 + Convert.ToInt32(dgvr.Cells("IVA 5%").Value.ToString)'total 5%
+				monto_total = monto_total + Convert.ToInt32(dgvr.Cells("MONTO TOTAL").Value.ToString)'monto total
+				
+				cli_ins
+				
+			Next
 			
 			'IMPRIMIMOS
 			
 			
 			
 		Else
-			MessageBox.Show("Debe completar los datos")
+			MessageBox.Show("Debe completar todos los datos")
 		End If
 
 		
@@ -97,6 +114,7 @@ Public Partial Class Form_facturas
 		Dim cli As New form_cliente()
 		If cli.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
 			'traemos el contenido
+			id_cliente = cli.id_cli'traemos el id del cliente del formulario
 			tx_nom_cliente.Text = cli.textBox1.Text 'cliente nombre
 			tx_ruc_cliente.text = cli.textBox2.Text 'cliente RUC
 			tx_tel_cliente.Text = cli.textBox3.Text 'cliente tel	
@@ -131,6 +149,9 @@ Public Partial Class Form_facturas
 	Sub Form_facturasLoad(sender As Object, e As EventArgs)
 		Me.CenterToScreen()	
 		
+		'fecha de hoy
+		dtp1.Value = DateTime.Now
+		
 		'chequeamos el contado
 		ch_contado.Checked = true
 		
@@ -150,33 +171,57 @@ Public Partial Class Form_facturas
 		'Llamamos al formulario de BUSCAR FACTURAS
 		Dim prod As New form_busca_prod()
 		If prod.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-			'Cargamos el gridview segun los datos selecccionados.
-			'calculamos el total del producto
-			
-			Dim total As Integer 
-			total = (Convert.ToInt32(prod.tx_canti.Text))*(Convert.ToInt32(prod.comboBox1.Text))
-			
-			DataGridView1.Rows.Add(False, prod.TextBox1.Text, prod.TextBox2.Text, prod.tx_canti.Text, prod.comboBox1.text,total.ToString)
-			DataGridView1.Refresh
-			
-			'recorremos el dgv para sumar los ivas y el total
+			Dim monto As Integer = 0
 			Dim iva_10 As Integer = 0
 			Dim iva_5 As Integer = 0
 			Dim iva_total As Integer = 0
 			Dim monto_total As Integer = 0
 			
-			For Each row As DataGridViewRow In dataGridView1.rows
-				
-				If prod.iva = 10 Then 
-					iva_10 = iva_10 + (iva_10*10/100)
-				ElseIf prod.iva = 5 Then 
-					iva_5 = iva_5 + (iva_10*5/100)
-				End If
+			
+			'Cargamos el gridview segun los datos selecccionados.
+			'calculamos el total del producto
+			Dim total As Integer 
+			total = (Convert.ToInt32(prod.tx_canti.Text))*(Convert.ToInt32(prod.comboBox1.Text))
+			
+			'calculamos el iva
+			If prod.tipo_iva = 10 Then
+				iva_10 = total*0.1
+			ElseIf prod.tipo_iva = 5 Then
+				iva_5 = total*0.05
+			End If
+			
+			'CALCULAMOS EL MONTO TOTAL 
+			monto_total = total + iva_10 + iva_5
+			
+			'insertamos la fila con los datos calculados
+			DataGridView1.Rows.Add(False, prod.TextBox1.Text, prod.TextBox2.Text, prod.tx_canti.Text, prod.comboBox1.text,total.ToString,iva_10.ToString,iva_5.ToString,monto_total.ToString)
+			DataGridView1.Refresh
+			
+			
+			'RECORREMOS el dgv para sumar los totales de IVA y MONTO FINAL
+			monto = 0
+			iva_10 = 0
+			iva_5 = 0
+			iva_total = 0
+			monto_total = 0
+			
+			For Each dgvr As DataGridViewRow In DataGridView1.Rows
+				'Messagebox.Show(dgvr.Cells("PRECIO TOTAL").Value.ToString)'debug
+				monto = monto + Convert.ToInt32(dgvr.Cells("PRECIO TOTAL").Value.ToString)'total monto sin iva
+				iva_10 = iva_10 + Convert.ToInt32(dgvr.Cells("IVA 10%").Value.ToString)'total 10%
+				iva_5 = iva_5 + Convert.ToInt32(dgvr.Cells("IVA 5%").Value.ToString)'total 5%
+				monto_total = monto_total + Convert.ToInt32(dgvr.Cells("MONTO TOTAL").Value.ToString)'monto total
 			Next
 			
+			'mostramos los valores
+			tx_iva_10.Text = iva_10.ToString
+			tx_iva_5.Text = iva_5.ToString
+			tx_total_iva.Text = iva_10 + iva_5
+			tx_monto_total.Text = monto_total
 			
     	Else
-        	'tx_nom_cliente.Text = "Cancelado"
+    		'tx_nom_cliente.Text = "Cancelado"
+    		
     	End If
     	prod.Dispose()	
 	End Sub
@@ -343,7 +388,6 @@ Public Partial Class Form_facturas
         Return cadena
     End Function
 	
-	
 	Sub Button6Click(sender As Object, e As EventArgs)
 		If DataGridView1.Rows.Count() > 0 Then
 			For i As Integer = DataGridView1.Rows.Count() - 1 To 0 Step -1
@@ -357,6 +401,28 @@ Public Partial Class Form_facturas
 	                DataGridView1.Rows.Remove(row)
 	            End If
 			Next
+			
+			'calculamos los valores nuevamente para mostrar abajo
+			Dim monto As Integer = 0
+			Dim iva_10 As Integer = 0
+			Dim iva_5 As Integer = 0
+			Dim iva_total As Integer = 0
+			Dim monto_total As Integer = 0
+
+			'RECORREMOS el dgv para sumar los totales de IVA y MONTO FINAL			
+			For Each dgvr As DataGridViewRow In DataGridView1.Rows
+				'Messagebox.Show(dgvr.Cells("PRECIO TOTAL").Value.ToString)'debug
+				monto = monto + Convert.ToInt32(dgvr.Cells("PRECIO TOTAL").Value.ToString)'total monto sin iva
+				iva_10 = iva_10 + Convert.ToInt32(dgvr.Cells("IVA 10%").Value.ToString)'total 10%
+				iva_5 = iva_5 + Convert.ToInt32(dgvr.Cells("IVA 5%").Value.ToString)'total 5%
+				monto_total = monto_total + Convert.ToInt32(dgvr.Cells("MONTO TOTAL").Value.ToString)'monto total
+			Next
+			
+			'mostramos los valores
+			tx_iva_10.Text = iva_10.ToString
+			tx_iva_5.Text = iva_5.ToString
+			tx_total_iva.Text = iva_10 + iva_5
+			
 			DataGridView1.Refresh
 		End If
 		'MessageBox.show("sdfsdf")'debug
