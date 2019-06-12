@@ -36,7 +36,7 @@ Public Partial Class form_add_cliente
 	
 		Dim conn = New System.Data.SqlClient.SqlConnection(con_str)
 		
-		Dim cli_ins As New SqlCommand("INSERT INTO facturas ([Nombre], [RUC], [Telefono], [Email], [Fec_nac], [Direccion])" &
+		Dim cli_ins As New SqlCommand("INSERT INTO clientes ([Nombre], [RUC], [Telefono], [Email], [Fec_nac], [Direccion])" &
                                   " VALUES(@Nombre, @RUC, @Telefono, @Email, @Fec_nac, @Direccion)", conn)
 
 		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@Nombre", .SqlDbType = SqlDbType.NVarChar, .Value = tx_nom_c.Text})
@@ -59,8 +59,10 @@ Public Partial Class form_add_cliente
 			    	tx_email_c.Text = ""
 			    	dt_fecnac_c.Text = ""
 			    	tx_dir_c.Text = ""
+			    	Me.DialogResult = Windows.Forms.DialogResult.OK
 			    Else
 			    	Messagebox.Show("Error al insertar.")
+			    	Me.DialogResult = Windows.Forms.DialogResult.Cancel
 			    End If
 			    
 			Catch ex As Exception

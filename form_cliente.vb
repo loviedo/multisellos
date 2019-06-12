@@ -70,6 +70,9 @@ Public Partial Class form_cliente
 			'tx_nom_cliente.Text = cliente.TextBox1.Text
         	'tx_ruc_cliente.Text = cliente.TextBox2.Text
         	'tx_tel_cliente.Text = cliente.TextBox3.Text
+        	
+        	'actualizamos el DGV / llamamos a la funcion que 
+        	Form_clienteLoad(sender,e)
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
