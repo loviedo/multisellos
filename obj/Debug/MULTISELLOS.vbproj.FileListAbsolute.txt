@@ -18,3 +18,23 @@ C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\
 C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_busca_prod.resources
 C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_listados.resources
 C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_compras.resources
+C:\Users\Win10\Documents\GitHub\multisellos\bin\Debug\MULTISELLOS.exe
+C:\Users\Win10\Documents\GitHub\multisellos\bin\Debug\MULTISELLOS.pdb
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.vbprojResolveAssemblyReference.cache
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_add_cliente.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.Form_add_producto.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_add_proveedor.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_busca_fact.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_busca_prod.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_cliente.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_compras.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_conf.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.Form_facturas.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_listados.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.Form_productos.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_proveedor.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.form_recibos.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.MainForm.resources
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.vbproj.GenerateResource.Cache
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.exe
+C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.pdb

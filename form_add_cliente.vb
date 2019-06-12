@@ -36,7 +36,7 @@ Public Partial Class form_add_cliente
 	
 		Dim conn = New System.Data.SqlClient.SqlConnection(con_str)
 		
-		Dim cli_ins As New SqlCommand("INSERT INTO facturas ([Nombre], [RUC], [Telefono], [Email], [Fec_nac], [Direccion])" &
+		Dim cli_ins As New SqlCommand("INSERT INTO clientes ([Nombre], [RUC], [Telefono], [Email], [Fec_nac], [Direccion])" &
                                   " VALUES(@Nombre, @RUC, @Telefono, @Email, @Fec_nac, @Direccion)", conn)
 
 		cli_ins.Parameters.Add(New SqlParameter With {.ParameterName = "@Nombre", .SqlDbType = SqlDbType.NVarChar, .Value = tx_nom_c.Text})
@@ -68,6 +68,9 @@ Public Partial Class form_add_cliente
 			Finally
 				conn.Close()
 				cli_ins.Dispose()
+				
+				'refrescamos el DGV
+				
 			End Try
 		Else
 			MessageBox.Show("DEBE COMPLETAR LOS CAMPOS OBLIGATORIOS!")
