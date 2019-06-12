@@ -59,8 +59,10 @@ Public Partial Class form_add_cliente
 			    	tx_email_c.Text = ""
 			    	dt_fecnac_c.Text = ""
 			    	tx_dir_c.Text = ""
+			    	Me.DialogResult = Windows.Forms.DialogResult.OK
 			    Else
 			    	Messagebox.Show("Error al insertar.")
+			    	Me.DialogResult = Windows.Forms.DialogResult.Cancel
 			    End If
 			    
 			Catch ex As Exception
