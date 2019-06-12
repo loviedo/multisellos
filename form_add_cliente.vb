@@ -62,6 +62,7 @@ Public Partial Class form_add_cliente
 			    	Me.DialogResult = Windows.Forms.DialogResult.OK
 			    Else
 			    	Messagebox.Show("Error al insertar.")
+			    	'otro
 			    	Me.DialogResult = Windows.Forms.DialogResult.Cancel
 			    End If
 			    
