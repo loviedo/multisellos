@@ -163,6 +163,7 @@ Partial Class Form_facturas
 		Me.tx_monto_total.Size = New System.Drawing.Size(118, 29)
 		Me.tx_monto_total.TabIndex = 24
 		Me.tx_monto_total.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		AddHandler Me.tx_monto_total.DoubleClick, AddressOf Me.Tx_monto_total_DoubleClick
 		'
 		'label12
 		'

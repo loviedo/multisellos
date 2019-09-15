@@ -675,9 +675,18 @@ Public Partial Class Form_facturas
 			tx_iva_10.Text = iva_10.ToString
 			tx_iva_5.Text = iva_5.ToString
 			tx_total_iva.Text = iva_10 + iva_5
+			tx_monto_total.Text = monto_total.ToString
 			
 			DataGridView1.Refresh
+			
+			
 		End If
 		'MessageBox.show("sdfsdf")'debug
+	End Sub
+	
+	Sub Tx_monto_total_DoubleClick(sender As Object, e As EventArgs)
+		'redondeamos el monto
+		tx_monto_total.Text = Math.Round(Convert.ToInt64(tx_monto_total.Text)/100,0)*100.ToString
+		'MessageBox.show(tx_monto_total.Text)'debug
 	End Sub
 End Class
