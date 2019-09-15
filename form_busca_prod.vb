@@ -111,6 +111,8 @@ Public Partial Class form_busca_prod
 		comboBox1.Items.Add(DataGridView1.Item(3, i).Value.ToString)
 		comboBox1.Items.Add(DataGridView1.Item(4, i).Value.ToString)
 		comboBox1.Items.Add(DataGridView1.Item(5, i).Value.ToString)
+		'dejamos seleccionado el item 1
+		me.comboBox1.SelectedIndex = 0 
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
@@ -119,7 +121,7 @@ Public Partial Class form_busca_prod
 	End Sub
 	
 	Sub Button3Click(sender As Object, e As EventArgs)
-		Me.DialogResult = System.Windows.Forms.DialogResult.OK
+		Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
 		Me.Close()		
 	End Sub
 End Class
