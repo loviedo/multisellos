@@ -215,9 +215,13 @@ Public Partial Class Form_facturas
 			
 			'calculamos el iva
 			If prod.tipo_iva = 10 Then
-				iva_10 = total*0.1
+				iva_10 = total - total/1.1
+				iva_5=0
+				total = total/1.1
 			ElseIf prod.tipo_iva = 5 Then
-				iva_5 = total*0.05
+				iva_5 = total - total/1.05
+				iva_10=0
+				total= total/1.05
 			End If
 			
 			tx_id_prod.Text = prod.id_prod
