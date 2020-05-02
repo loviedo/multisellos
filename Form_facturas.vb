@@ -693,4 +693,75 @@ Public Partial Class Form_facturas
 		tx_monto_total.Text = Math.Round(Convert.ToInt64(tx_monto_total.Text)/100,0)*100.ToString
 		'MessageBox.show(tx_monto_total.Text)'debug
 	End Sub
+	
+	Sub Tx_nom_clienteTextChanged(sender As Object, e As EventArgs)
+		
+	End Sub
+	
+	Sub Tx_ruc_clienteTextChanged(sender As Object, e As EventArgs)
+		
+		'traemos los datos de los clientes segun RUC. y mostramos
+		
+	End Sub
+	
+	Sub Label2Click(sender As Object, e As EventArgs)
+		'traemos los datos de los clientes segun nombre. y mostramos a medida que escribimos en los 3 campos
+		Dim con As New SqlConnection(con_str)
+		Dim cmd As New SqlCommand
+		
+		Dim consulta As String = "select top 1 * from clientes"
+		
+		If tx_nom_cliente.Text.Length >= 1 Then
+			consulta = consulta + " where nombre like '%" + tx_nom_cliente.Text + "%'"
+		End If
+		
+		Try
+			con.Open()
+			cmd = con.CreateCommand()
+		    cmd.CommandText = consulta
+		    Dim dt = new DataTable()
+		    dt.Load(cmd.ExecuteReader())
+		    
+		    'asignamos los valores
+		    tx_nom_cliente.Text = dt.Rows(0)("nombre").ToString()
+		    tx_ruc_cliente.Text = dt.Rows(0)("ruc").ToString()
+			tx_tel_cliente.Text = dt.Rows(0)("telefono").ToString()
+	      
+		Catch ex As Exception
+			MessageBox.Show(ex.Message.ToString)
+		Finally
+		    con.Close()
+		End Try	
+	End Sub
+	
+	Sub Label3Click(sender As Object, e As EventArgs)
+		'traemos en base al ruc
+		Dim con As New SqlConnection(con_str)
+		Dim cmd As New SqlCommand
+		
+		Dim consulta As String = "select top 1 * from clientes"
+		'Dim datos As System.Data.SqlServerCe.SqlCeDataReader
+		
+		If tx_ruc_cliente.Text.Length >= 1 Then
+			consulta = consulta + " where ruc like '%" + tx_ruc_cliente.Text + "%'"
+		End If
+		
+		Try
+			con.Open()
+			cmd = con.CreateCommand()
+		    cmd.CommandText = consulta
+		    Dim dt = new DataTable()
+		    dt.Load(cmd.ExecuteReader())
+		    
+		    'asignamos los valores
+		    tx_nom_cliente.Text = dt.Rows(0)("nombre").ToString()
+		    tx_ruc_cliente.Text = dt.Rows(0)("ruc").ToString()
+			tx_tel_cliente.Text = dt.Rows(0)("telefono").ToString()
+	      
+		Catch ex As Exception
+			MessageBox.Show(ex.Message.ToString)
+		Finally
+		    con.Close()
+		End Try	
+	End Sub
 End Class

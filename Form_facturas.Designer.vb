@@ -384,6 +384,7 @@ Partial Class Form_facturas
 		Me.label3.TabIndex = 7
 		Me.label3.Text = "RUC:"
 		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		AddHandler Me.label3.Click, AddressOf Me.Label3Click
 		'
 		'label2
 		'
@@ -394,6 +395,7 @@ Partial Class Form_facturas
 		Me.label2.TabIndex = 6
 		Me.label2.Text = "CLIENTE:"
 		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		AddHandler Me.label2.Click, AddressOf Me.Label2Click
 		'
 		'tx_tel_cliente
 		'
