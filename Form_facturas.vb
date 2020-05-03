@@ -694,16 +694,6 @@ Public Partial Class Form_facturas
 		'MessageBox.show(tx_monto_total.Text)'debug
 	End Sub
 	
-	Sub Tx_nom_clienteTextChanged(sender As Object, e As EventArgs)
-		
-	End Sub
-	
-	Sub Tx_ruc_clienteTextChanged(sender As Object, e As EventArgs)
-		
-		'traemos los datos de los clientes segun RUC. y mostramos
-		
-	End Sub
-	
 	Sub Label2Click(sender As Object, e As EventArgs)
 		'traemos los datos de los clientes segun nombre. y mostramos a medida que escribimos en los 3 campos
 		Dim con As New SqlConnection(con_str)
