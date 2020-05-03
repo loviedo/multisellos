@@ -262,8 +262,8 @@ Public Partial Class Form_facturas
     	prod.Dispose()	
 	End Sub
 	
-	
-	Sub PrintDocument1PrintPage(sender As Object, e As PrintPageEventArgs)
+	'DISE:O IMPRESION EN CASO DE HOJA PREIMPRESA --por ahora no usamos 
+	Sub PrintDocument2PrintPage(sender As Object, e As PrintPageEventArgs)
 		Static currentChar As Integer
 		Static currentLine As Integer
 		Dim textfont As Font = tx_nom_cliente.Font'debug
@@ -273,21 +273,39 @@ Public Partial Class Form_facturas
 		
 		
 		'SETEAMOS a A4
-		Dim ps As New PaperSize("A4", 850, 1100)
-		ps.PaperName = PaperKind.A4
-		PrintDocument1.DefaultPageSettings.PaperSize = ps
+		'Dim ps As New PaperSize("A4", 850, 1100)
+		'ps.PaperName = PaperKind.A4
+		'PrintDocument1.DefaultPageSettings.PaperSize = ps
+		
+		'INICIO VER DIMENSIONES SOPORTADAS
+		Dim ps1 As New PrinterSettings
+		Console.WriteLine(ps1.PrinterName)
+		For Each paperSize As PaperSize In ps1.PaperSizes
+			'Console.WriteLine("{0}: ({1}, {2})", paperSize.PaperName, paperSize.Width, paperSize.Height)
+			MessageBox.Show( paperSize.PaperName & " / " & paperSize.Width & " / " & paperSize.Height)
+		Next
+		'INICIO VER DIMENSIONES SOPORTADAS
+		
 		
 		With PrintDocument1.DefaultPageSettings
-		   'h = .PaperSize.Height - .Margins.Top - .Margins.Bottom
-		   'w = .PaperSize.Width - .Margins.Left - .Margins.Right
-		   'left = PrintDocument1.DefaultPageSettings.Margins.Left
-		   'top = PrintDocument1.DefaultPageSettings.Margins.Top
+			'prueba
+		   	'h = .PaperSize.Height - .Margins.Top - .Margins.Bottom
+		  	'w = .PaperSize.Width - .Margins.Left - .Margins.Right
+		  	'left = PrintDocument1.DefaultPageSettings.Margins.Left
+		  	'top = PrintDocument1.DefaultPageSettings.Margins.Top
 		   
-		   h = .PaperSize.Height-60
-		   w = .PaperSize.Width-60
-		   left = 30'.Margins.Left
-		   top = 30'.Margins.Top
+		 	h = .PaperSize.Height-60
+			w = .PaperSize.Width-60
+		 	left = 30'.Margins.Left
+		   	top = 30'.Margins.Top
 		End With
+		
+		'directivas de impresion
+		
+		
+		
+		
+		
        
 		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top, w, h/2-30))'cuadro grande arriba
 		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30, w, h/2))'cuadro grande abajo
@@ -446,7 +464,6 @@ Public Partial Class Form_facturas
 		total_iva_10 = total - total/1.1
 		
 		
-		
 		'TOTAL IVA 5% MONTO
 		e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, top+h/18+h/13+283+20+13)'TOTAL IVA
 		e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, h/2+30+h/18+h/13+333+13)'TOTAL IVA
@@ -481,8 +498,281 @@ Public Partial Class Form_facturas
 		'e.Graphics.DrawLine(blackPen,left,1052,left+w,1052)
 		'e.Graphics.DrawLine(Pens.Black,w-300+105,1018,w-300+105,1036)
 		'e.Graphics.DrawLine(Pens.Black,left+w-300+150,1018,left+w-300+150,1052)
+	End Sub
+
+	
+	Sub PrintDocument1PrintPage(sender As Object, e As PrintPageEventArgs)
+		Static currentChar As Integer
+		Static currentLine As Integer
+		Dim textfont As Font = tx_nom_cliente.Font'debug
+		Dim h, w As Integer
+		Dim left, top As Integer
+		Dim cell As DataGridViewCheckBoxCell
 		
 		
+		'SETEAMOS a A4
+		'Dim ps As New PaperSize("A4", 850, 1100)
+		'ps.PaperName = PaperKind.A4
+		'PrintDocument1.DefaultPageSettings.PaperSize = ps
+		
+		'INICIO VER DIMENSIONES SOPORTADAS
+		Dim ps1 As New PrinterSettings
+		Console.WriteLine(ps1.PrinterName)
+		For Each paperSize As PaperSize In ps1.PaperSizes
+			'Console.WriteLine("{0}: ({1}, {2})", paperSize.PaperName, paperSize.Width, paperSize.Height)
+			'MessageBox.Show( paperSize.PaperName & " / " & paperSize.Width & " / " & paperSize.Height) 'debug
+		Next
+		'INICIO VER DIMENSIONES SOPORTADAS
+		Static letra As New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular)
+		Dim centro As Single
+		Dim texto As String
+		
+		
+		top = 20
+		'DIRECTIVAS IMPRESION
+		'----- DATOS EMPRESA
+		'nombre empresa
+		texto = "CDI IMPRESIONES"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*0))'NOMBRE EMPRESA
+		
+		'ruc
+		texto = "R.U.C.: 8001278-5"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*1))'RUC EMPRESA
+		
+		'sucursal
+		texto = "SUC.: Suc. Supermercado Pueblo"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*2))'RUC EMPRESA
+		
+		'telefono
+		texto = "TEL: (0991) 845.123"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*3))'telefono
+		
+		'nro timbrado
+		texto = "TIMBRADO: 159357456"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*4))'telefono
+		
+		'fecha inicio vigencia timbrado
+		texto = "FEC INICIO TIMBRADO: 07/01/2020"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*5))'telefono
+		
+		'fecha fin vigencia timbrado
+		texto = "FEC FIN TIMBRADO: 07/01/2021"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*6))'telefono
+		
+		'divisoria
+		texto = "-------------------------------------------------------------------------"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*7))'RUC CLIENTE
+		
+		'----- DATOS CLIENTE
+		'ci / ruc 
+		texto = "CI/RUC: " & tx_ruc_cliente.Text
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+12*8))'RUC CLIENTE
+		'nombre
+		texto = "Cliente: " & tx_nom_cliente.Text
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+12*9))'NOBRE CLIENTE
+		
+		'divisoria
+		texto = "-------------------------------------------------------------------------"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+12*10))'
+		
+		'----- DETALLE COMPRA
+		'ciclamos por detalle 
+		'cabecera
+		texto = "Cnt Desc	   	      P.U.          P.T."
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+12*11))'NOBRE CLIENTE
+		
+		Dim i As Int32 = 0
+		Dim total As Integer = 0
+		Dim total_iva_5 As Integer = 0
+		Dim total_iva_10 As Integer = 0
+		Dim total_exentas As Integer = 0
+		
+		For Each row As DataGridViewRow In dataGridView1.Rows
+			'cell = row.Cells(0) 'no hace falta controlar que este chequeado para imprimir
+			'If row.Cells(0).Value = True Then
+				'MessageBox.Show(cell.Value.ToStrsing & " : " & row.Index.ToString)'debug
+				
+				'CANTIDAD
+				texto = row.cells(3).Value.ToString
+				e.Graphics.DrawString(texto,letra, Brushes.Black, 10, (top+(12*12)+i))
+				
+				'DESCRIPCION
+				texto = row.cells(2).Value.ToString
+				e.Graphics.DrawString(texto,letra, Brushes.Black, 32, (top+(12*12)+i))
+				
+				'PRECIO UNITARIO
+				texto = row.cells(4).Value.ToString
+				e.Graphics.DrawString(texto,letra, Brushes.Black, 152, (top+(12*13)+i))
+				
+				'PRECIO TOTAL
+				texto = row.cells(8).Value.ToString
+				e.Graphics.DrawString(texto,letra, Brushes.Black, 205, (top+(12*13)+i))
+				
+				'totalizamos de vuelta
+				'total iva 10%
+				If Integer.Parse(row.cells(6).Value) > 0 Then'celda iva 10
+					total_iva_10 = total_iva_10 + Integer.Parse(row.cells(6).Value)'sumamos la celda el monto total gravado 10%
+				End If
+				If Integer.Parse(row.cells(7).Value) > 0 Then'celda iva 5
+					total_iva_5 = total_iva_5 + Integer.Parse(row.cells(5).Value)'sumamos la celda el monto total gravado 10%
+				End If
+				'exentas
+				If Integer.Parse(row.cells(6).Value) = 0 And Integer.Parse(row.cells(7).Value) = 0 Then'celda iva 5
+					total_exentas = total_exentas + Integer.Parse(row.cells(5).Value)'sumamos la celda el monto total gravado 10%
+				End If
+
+				i= i+20'espacio entre lineas
+			'End If
+		Next
+		i=i-15'del final del ciclo sacamos para mejor posicion
+		
+		'continuamos imprimiendo desde el valor actual
+		'divisoria
+		texto = "-------------------------------------------------------------------------"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+(12*14)+i))
+		
+		'----- TOTALES
+		'TOTAL COMPRA
+		texto = "Total a Pagar Gs.: " & tx_monto_total.Text
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*15)+i))'total a pagar
+		'TOTAL COMPRA EN LETRAS
+		texto = letras(tx_monto_total.Text)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*16)+i))'total a pagar en letras
+		
+		'divisoria
+		texto = "-------------------------------------------------------------------------"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+(12*17)+i))
+		
+		'----- TOTALES GRAVADAS Y EXENTAS
+		'TOTAL GRAVADAS 10%
+		texto = "Total Grav. 10% Gs.: " & total_iva_10.toString()
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*18)+i))'total a pagar
+		'TOTAL GRAVADAS 5%
+		texto = "Total Grav. 5% Gs.: " & total_iva_5.toString()
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*19)+i))'total a pagar
+		'TOTAL EXENTAS
+		texto = "Total Exentas Gs.: " & total_exentas.toString()
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*20)+i))'total a pagar
+		
+		'divisoria
+		texto = "-------------------------------------------------------------------------"
+		centro = Convert.ToSingle(e.PageBounds.Width / 2 - e.Graphics.MeasureString(texto, letra).Width / 2)
+		e.Graphics.DrawString(texto,letra , Brushes.Black, centro, (top+(12*21)+i))
+		
+		'----- TOTALES IMPUESTOS
+		'TITULO
+		texto = "Liquidación del IVA"
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*22)+i))
+		'TOTAL IVA 10%
+		texto = "10%: " & tx_iva_10.Text
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*23)+i))'total a pagar
+		'TOTAL IVA 5%
+		texto = "5%: " & tx_iva_5.Text
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*24)+i))'total a pagar
+		'TOTAL IVA
+		texto = "Total I.V.A.: " & tx_total_iva.Text
+		e.Graphics.DrawString(texto,letra , Brushes.Black, 10, (top+(12*25)+i))'total a pagar
+		
+
+		'AQUI IMPRIMIMOS LA INFO SOBRE EL CLIENTE
+		'fecha emision
+		'e.Graphics.DrawString(System.DateTime.Now.ToShortDateString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18-15)'fecha emision
+		'e.Graphics.DrawString(System.DateTime.Now.ToShortDateString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18-15)'fecha emision
+		
+		'nombre cliente
+		'e.Graphics.DrawString(tx_nom_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+140, top+h/18+5)'NOMBRE CLIENTE
+		'e.Graphics.DrawString(tx_nom_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+140, h/2+30+h/18+5)'NOMBRE CLIENTE
+		
+		'RUC
+		'e.Graphics.DrawString(tx_ruc_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, top+h/18+25)'ruc
+		'e.Graphics.DrawString(tx_ruc_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, h/2+30+h/18+25)'ruc
+		
+		'Direccion
+		'e.Graphics.DrawString(" - ", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, top+h/18+5+38)'dir
+		'e.Graphics.DrawString(" - ", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, h/2+30+h/18+5+38)'dir
+		
+		'Telefono
+		'e.Graphics.DrawString(tx_tel_cliente.text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+530, top+h/18+5+38)'Telefono
+		'e.Graphics.DrawString(tx_tel_cliente.text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+530, h/2+30+h/18+5+38)'Telefono
+
+		'Dim i As Int16 = 0
+		'Dim total As Integer = 0
+		'Dim total_iva_5 As Integer = 0
+		'Dim total_iva_10 As Integer = 0
+		'For Each row As DataGridViewRow In DataGridView1.Rows
+		'	cell = row.Cells(0)
+		'	If cell.Value = True Then
+				'MessageBox.Show(cell.Value.ToStrsing & " : " & row.Index.ToString)'debug
+				
+		'		e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, top+h/18+h/13+4+i)'cant
+		'		e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, h/2+30+h/18+h/13+4+i)'cant
+				
+				'Las lineas comentadas imprimen el nro de item + la desc
+				'e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+22+i)'descripcion
+				'e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+22+i)'descripcion
+		'		e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+4+i)'descripcion
+		'		e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+4+i)'descripcion
+
+				
+		'		e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, top+h/18+h/13+4+i)'precio unitario
+		'		e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, h/2+30+h/18+h/13+4+i)'precio unitario
+				
+		'		e.Graphics.DrawString((Math.Truncate(row.cells(7).Value)*Math.Truncate(row.cells(13).Value)).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+735, top+h/18+h/13+4+i)'total
+		'		e.Graphics.DrawString((Math.Truncate(row.cells(7).Value)*Math.Truncate(row.cells(13).Value)).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+735, h/2+30+h/18+h/13+4+i)'total
+				
+				
+		'		i= i+12'espacio entre lineas
+		'		total = total + (Math.Truncate(row.cells(7).Value)*Math.Truncate(row.cells(13).Value))
+		'	End If
+		'Next
+		'total_iva_5 = 0'total - total/1.05
+		'total_iva_10 = total - total/1.1
+		
+		
+		'TOTAL IVA 5% MONTO
+		'e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, top+h/18+h/13+283+20+13)'TOTAL IVA
+		'e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, h/2+30+h/18+h/13+333+13)'TOTAL IVA
+		
+		'TOTAL IVA 10% MONTO
+		'e.Graphics.DrawString(total_iva_10, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+310, top+h/18+h/13+283+20+13)'TOTAL IVA
+		'e.Graphics.DrawString(total_iva_10, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+310, h/2+30+h/18+h/13+333+13)'TOTAL IVA
+		
+		'TOTAL IVA MONTO
+		'e.Graphics.DrawString(total_iva_10 + total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+520, top+h/18+h/13+283+20+13)'TOTAL IVA
+		'e.Graphics.DrawString(total_iva_10 + total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+520, h/2+30+h/18+h/13+333+13)'TOTAL IVA
+		
+        'SUBTOTAL
+       	'e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+725, top+h/18+h/13+283+2)'SUBTOTAL
+       	'e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+725, h/2+30+h/18+h/13+315)'SUBTOTAL
+       	
+        'TOTAL EN NROS
+       	'e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+725, top+h/18+h/13+283+17)'TOTAL EN NROS
+       	'e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+725, h/2+30+h/18+h/13+330)'TOTAL EN NROS
+       	
+       	'TOTAL EN LETRAS
+		'e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18+h/13+283+17)'TOTAL en LETRAS
+		'e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18+h/13+330)'TOTAL en LETRAS
+		
+		'e.Graphics.DrawLine(blackPen,left,486,left+w-150,486)
+		'e.Graphics.DrawLine(blackPen,left,502,left+w,502)
+		'e.Graphics.DrawLine(Pens.Black,w-300+105,468,w-300+105,485)
+		'e.Graphics.DrawLine(Pens.Black,left+w-300+150,468,left+w-300+150,502)
+		'abajo
+		'e.Graphics.DrawLine(blackPen,left,1036,left+w-150,1036)
+		'e.Graphics.DrawLine(blackPen,left,1052,left+w,1052)
+		'e.Graphics.DrawLine(Pens.Black,w-300+105,1018,w-300+105,1036)
+		'e.Graphics.DrawLine(Pens.Black,left+w-300+150,1018,left+w-300+150,1052)
 	End Sub
 
 	'sacado de https://www.lawebdelprogramador.com/foros/Visual-Basic.NET/839884-Numeros-a-letras-una-forma-facil.html

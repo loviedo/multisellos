@@ -495,6 +495,10 @@ Partial Class Form_facturas
 		Me.button2.UseVisualStyleBackColor = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
+		'printDocument1
+		'
+		AddHandler Me.printDocument1.PrintPage, AddressOf Me.PrintDocument1PrintPage
+		'
 		'printDialog1
 		'
 		Me.printDialog1.UseEXDialog = true
