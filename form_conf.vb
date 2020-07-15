@@ -17,10 +17,26 @@ Public Partial Class form_conf
 	End Sub
 	
 	Sub Form_confLoad(sender As Object, e As EventArgs)
-				
+		Me.CenterToScreen()	
 	End Sub
 	
 	Sub Button1Click(sender As Object, e As EventArgs)
-		Me.Close()		
+		Me.Close()
+		
+	End Sub
+	
+	Sub ListarTimbradosToolStripMenuItemClick(sender As Object, e As EventArgs)
+		'llamamos a la vista de listado de timbrados.
+		'aca podemos seleccionar el timbrado a usarse actualmente
+		
+		
+	End Sub
+	
+	Sub SeleccionarTimbradosToolStripMenuItemClick(sender As Object, e As EventArgs)
+		'damos de alta un timbrado
+		'mostramos el campo con los datos a cargar y luego se lista
+		Dim cli As New form_alta_timbrado()
+		
+		
 	End Sub
 End Class
