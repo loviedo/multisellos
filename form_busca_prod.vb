@@ -13,7 +13,7 @@ Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Partial Class form_busca_prod
 	
-	Dim con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
+	Private con_str = "Server=localhost\SQLEXPRESS;Database=MULTISELLOS;User Id=admin;Password=Super123;"
 	Public tipo_iva As Integer
 	Public id_prod As Integer
 	

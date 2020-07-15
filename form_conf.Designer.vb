@@ -35,20 +35,22 @@ Partial Class form_conf
 	Private Sub InitializeComponent()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.panel1 = New System.Windows.Forms.Panel()
+		Me.label5 = New System.Windows.Forms.Label()
+		Me.tx_timbrado = New System.Windows.Forms.TextBox()
 		Me.menuStrip1 = New System.Windows.Forms.MenuStrip()
 		Me.timbradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.listarTimbradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.seleccionarTimbradosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-		Me.label5 = New System.Windows.Forms.Label()
-		Me.tx_nro_ini = New System.Windows.Forms.TextBox()
 		Me.label1 = New System.Windows.Forms.Label()
+		Me.panel2 = New System.Windows.Forms.Panel()
 		Me.panel1.SuspendLayout
 		Me.menuStrip1.SuspendLayout
+		Me.panel2.SuspendLayout
 		Me.SuspendLayout
 		'
 		'button1
 		'
-		Me.button1.Location = New System.Drawing.Point(571, 430)
+		Me.button1.Location = New System.Drawing.Point(541, 6)
 		Me.button1.Name = "button1"
 		Me.button1.Size = New System.Drawing.Size(199, 36)
 		Me.button1.TabIndex = 0
@@ -60,11 +62,32 @@ Partial Class form_conf
 		'
 		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel1.Controls.Add(Me.label5)
-		Me.panel1.Controls.Add(Me.tx_nro_ini)
+		Me.panel1.Controls.Add(Me.tx_timbrado)
 		Me.panel1.Location = New System.Drawing.Point(12, 68)
 		Me.panel1.Name = "panel1"
 		Me.panel1.Size = New System.Drawing.Size(758, 347)
 		Me.panel1.TabIndex = 1
+		'
+		'label5
+		'
+		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label5.Location = New System.Drawing.Point(3, 10)
+		Me.label5.Name = "label5"
+		Me.label5.Size = New System.Drawing.Size(248, 29)
+		Me.label5.TabIndex = 35
+		Me.label5.Text = "Nro Timbrado Vigente:"
+		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'tx_timbrado
+		'
+		Me.tx_timbrado.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_timbrado.Location = New System.Drawing.Point(15, 45)
+		Me.tx_timbrado.Multiline = true
+		Me.tx_timbrado.Name = "tx_timbrado"
+		Me.tx_timbrado.ReadOnly = true
+		Me.tx_timbrado.Size = New System.Drawing.Size(430, 29)
+		Me.tx_timbrado.TabIndex = 2
+		Me.tx_timbrado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'menuStrip1
 		'
@@ -96,27 +119,6 @@ Partial Class form_conf
 		Me.seleccionarTimbradosToolStripMenuItem.Text = "Alta Timbrados"
 		AddHandler Me.seleccionarTimbradosToolStripMenuItem.Click, AddressOf Me.SeleccionarTimbradosToolStripMenuItemClick
 		'
-		'label5
-		'
-		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(3, 10)
-		Me.label5.Name = "label5"
-		Me.label5.Size = New System.Drawing.Size(248, 29)
-		Me.label5.TabIndex = 35
-		Me.label5.Text = "Nro Timbrado Vigente:"
-		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'tx_nro_ini
-		'
-		Me.tx_nro_ini.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_nro_ini.Location = New System.Drawing.Point(15, 45)
-		Me.tx_nro_ini.Multiline = true
-		Me.tx_nro_ini.Name = "tx_nro_ini"
-		Me.tx_nro_ini.ReadOnly = true
-		Me.tx_nro_ini.Size = New System.Drawing.Size(430, 29)
-		Me.tx_nro_ini.TabIndex = 2
-		Me.tx_nro_ini.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-		'
 		'label1
 		'
 		Me.label1.BackColor = System.Drawing.SystemColors.AppWorkspace
@@ -129,14 +131,23 @@ Partial Class form_conf
 		Me.label1.Text = "Configuración Sistema"
 		Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
+		'panel2
+		'
+		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.button1)
+		Me.panel2.Location = New System.Drawing.Point(12, 421)
+		Me.panel2.Name = "panel2"
+		Me.panel2.Size = New System.Drawing.Size(758, 45)
+		Me.panel2.TabIndex = 19
+		'
 		'form_conf
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(782, 478)
+		Me.Controls.Add(Me.panel2)
 		Me.Controls.Add(Me.label1)
 		Me.Controls.Add(Me.panel1)
-		Me.Controls.Add(Me.button1)
 		Me.Controls.Add(Me.menuStrip1)
 		Me.MainMenuStrip = Me.menuStrip1
 		Me.Name = "form_conf"
@@ -146,11 +157,13 @@ Partial Class form_conf
 		Me.panel1.PerformLayout
 		Me.menuStrip1.ResumeLayout(false)
 		Me.menuStrip1.PerformLayout
+		Me.panel2.ResumeLayout(false)
 		Me.ResumeLayout(false)
 		Me.PerformLayout
 	End Sub
+	Private panel2 As System.Windows.Forms.Panel
 	Private label1 As System.Windows.Forms.Label
-	Private tx_nro_ini As System.Windows.Forms.TextBox
+	Private tx_timbrado As System.Windows.Forms.TextBox
 	Private label5 As System.Windows.Forms.Label
 	Private seleccionarTimbradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Private listarTimbradosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

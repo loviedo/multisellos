@@ -39,3 +39,4 @@ C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.vbproj.Generat
 C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.exe
 C:\Users\Win10\Documents\GitHub\multisellos\obj\Debug\MULTISELLOS.pdb
 C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_alta_timbrado.resources
+C:\Users\Luis\Documents\SharpDevelop Projects\MULTISELLOS\MULTISELLOS\obj\Debug\MULTISELLOS.form_lista_timbrados.resources

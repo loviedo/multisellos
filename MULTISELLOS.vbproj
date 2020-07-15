@@ -101,6 +101,10 @@
       <DependentUpon>form_listados.vb</DependentUpon>
     </Compile>
     <Compile Include="form_listados.vb" />
+    <Compile Include="form_lista_timbrados.Designer.vb">
+      <DependentUpon>form_lista_timbrados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_lista_timbrados.vb" />
     <Compile Include="Form_productos.Designer.vb">
       <DependentUpon>Form_productos.vb</DependentUpon>
     </Compile>
@@ -158,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="form_listados.resx">
       <DependentUpon>form_listados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_lista_timbrados.resx">
+      <DependentUpon>form_lista_timbrados.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_productos.resx">
       <DependentUpon>Form_productos.vb</DependentUpon>

@@ -34,6 +34,8 @@ Partial Class form_alta_timbrado
 	''' </summary>
 	Private Sub InitializeComponent()
 		Me.panel1 = New System.Windows.Forms.Panel()
+		Me.label6 = New System.Windows.Forms.Label()
+		Me.tx_nro_fin = New System.Windows.Forms.TextBox()
 		Me.label5 = New System.Windows.Forms.Label()
 		Me.tx_nro_ini = New System.Windows.Forms.TextBox()
 		Me.label4 = New System.Windows.Forms.Label()
@@ -48,8 +50,6 @@ Partial Class form_alta_timbrado
 		Me.button2 = New System.Windows.Forms.Button()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.label1 = New System.Windows.Forms.Label()
-		Me.label6 = New System.Windows.Forms.Label()
-		Me.textBox1 = New System.Windows.Forms.TextBox()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		Me.SuspendLayout
@@ -58,7 +58,7 @@ Partial Class form_alta_timbrado
 		'
 		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel1.Controls.Add(Me.label6)
-		Me.panel1.Controls.Add(Me.textBox1)
+		Me.panel1.Controls.Add(Me.tx_nro_fin)
 		Me.panel1.Controls.Add(Me.label5)
 		Me.panel1.Controls.Add(Me.tx_nro_ini)
 		Me.panel1.Controls.Add(Me.label4)
@@ -73,7 +73,26 @@ Partial Class form_alta_timbrado
 		Me.panel1.Name = "panel1"
 		Me.panel1.Size = New System.Drawing.Size(617, 328)
 		Me.panel1.TabIndex = 0
-		AddHandler Me.panel1.Paint, AddressOf Me.Panel1Paint
+		'
+		'label6
+		'
+		Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label6.Location = New System.Drawing.Point(17, 246)
+		Me.label6.Name = "label6"
+		Me.label6.Size = New System.Drawing.Size(133, 29)
+		Me.label6.TabIndex = 35
+		Me.label6.Text = "Nro Final:"
+		Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'tx_nro_fin
+		'
+		Me.tx_nro_fin.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_nro_fin.Location = New System.Drawing.Point(156, 246)
+		Me.tx_nro_fin.Multiline = true
+		Me.tx_nro_fin.Name = "tx_nro_fin"
+		Me.tx_nro_fin.Size = New System.Drawing.Size(430, 29)
+		Me.tx_nro_fin.TabIndex = 34
+		Me.tx_nro_fin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'label5
 		'
@@ -158,7 +177,7 @@ Partial Class form_alta_timbrado
 		Me.label2.Name = "label2"
 		Me.label2.Size = New System.Drawing.Size(133, 29)
 		Me.label2.TabIndex = 8
-		Me.label2.Text = "Nro:"
+		Me.label2.Text = "Número:"
 		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
 		'tx_nro_tim
@@ -213,26 +232,6 @@ Partial Class form_alta_timbrado
 		Me.label1.Text = "AGREGAR TIMBRADO"
 		Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'label6
-		'
-		Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label6.Location = New System.Drawing.Point(17, 246)
-		Me.label6.Name = "label6"
-		Me.label6.Size = New System.Drawing.Size(133, 29)
-		Me.label6.TabIndex = 35
-		Me.label6.Text = "Nro Final:"
-		Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'textBox1
-		'
-		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(156, 246)
-		Me.textBox1.Multiline = true
-		Me.textBox1.Name = "textBox1"
-		Me.textBox1.Size = New System.Drawing.Size(430, 29)
-		Me.textBox1.TabIndex = 34
-		Me.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-		'
 		'form_alta_timbrado
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -249,7 +248,7 @@ Partial Class form_alta_timbrado
 		Me.panel2.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
-	Private textBox1 As System.Windows.Forms.TextBox
+	Private tx_nro_fin As System.Windows.Forms.TextBox
 	Private label6 As System.Windows.Forms.Label
 	Private tx_nro_ini As System.Windows.Forms.TextBox
 	Private label5 As System.Windows.Forms.Label
